@@ -3,1702 +3,620 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ITN Mass Campaign - Sierra Leone</title>
+    <title>ITN Mass Campaign Distribution</title>
+    
+    <!-- PWA Meta Tags -->
     <meta name="description" content="ITN Mass Campaign Distribution System - Sierra Leone">
-    <meta name="theme-color" content="#0a1628">
+    <meta name="theme-color" content="#0056a8">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ITN Campaign">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="ITN Campaign">
+    <meta name="msapplication-TileColor" content="#0056a8">
+    <meta name="msapplication-tap-highlight" content="no">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='6' fill='%230056a8'/%3E%3Ctext x='24' y='33' font-family='Impact,Arial Black,sans-serif' font-size='22' font-weight='900' fill='white' text-anchor='middle'%3EITN%3C/text%3E%3Crect x='8' y='36' width='32' height='3' rx='1.5' fill='%23ffc107'/%3E%3C/svg%3E">
+    
+    <!-- Oswald Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='8' fill='%230a1628'/%3E%3Ctext x='24' y='32' font-family='Impact' font-size='20' font-weight='900' fill='%2300d4aa' text-anchor='middle'%3EITN%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
-<!-- ==================== LOGIN SCREEN ==================== -->
-<div class="screen" id="loginScreen">
-    <div class="login-container">
-        <div class="login-glow"></div>
-        <div class="login-card">
-            <div class="login-header">
-                <div class="login-logo">
-                    <svg viewBox="0 0 60 60" fill="none">
-                        <rect width="60" height="60" rx="12" fill="#0a1628"/>
-                        <path d="M15 20h30v5H15z" fill="#00d4aa" opacity="0.3"/>
-                        <path d="M15 28h30v5H15z" fill="#00d4aa" opacity="0.5"/>
-                        <path d="M15 36h30v5H15z" fill="#00d4aa" opacity="0.8"/>
-                        <circle cx="30" cy="30" r="8" fill="none" stroke="#00d4aa" stroke-width="2"/>
-                        <path d="M30 22v16M22 30h16" stroke="#00d4aa" stroke-width="2"/>
-                    </svg>
+    <!-- ==================== LOGIN SCREEN ==================== -->
+    <div class="login-screen" id="loginScreen">
+        <div class="page-container">
+            <!-- HEADER -->
+            <div class="page-header">
+                <div class="header-logos">
+                    <img src="https://github.com/mohamedsillahkanu/gdp-dashboard-2/raw/6c7463b0d5c3be150aafae695a4bcbbd8aeb1499/ICF-SL.jpg" alt="ICF-SL Logo" class="header-logo-main">
                 </div>
-                <h1 class="login-title">ITN MASS CAMPAIGN</h1>
-                <p class="login-subtitle">Sierra Leone — Distribution Management System</p>
-                <div class="login-divider"></div>
-                <p class="login-org">Informatics Consultancy Firm-SL (ICF-SL)</p>
+                <h3>Informatics Consultancy Firm-Sierra Leone (ICF-SL)</h3>
+                <p class="tagline"><em>Driving Data-Driven Solutions for Health and Development</em></p>
+                <div class="header-divider"></div>
+                <h1>ITN MASS CAMPAIGN DISTRIBUTION</h1>
+                <p class="subtitle">Insecticide-Treated Nets — Mass Campaign System</p>
             </div>
 
-            <div class="login-form">
-                <div class="login-field">
-                    <label>USER ID</label>
-                    <input type="text" id="loginUserId" placeholder="Enter your User ID" autocomplete="off">
+            <!-- PARTNER LOGOS -->
+            <div class="partners-section">
+                <div class="partners-label">IMPLEMENTING PARTNERS</div>
+                <div class="partners-grid">
+                    <div class="partner-logo-card">
+                        <div class="partner-logo-img"><div class="logo-placeholder-box">MoHS</div></div>
+                        <span class="partner-name">Ministry of Health</span>
+                    </div>
+                    <div class="partner-logo-card">
+                        <div class="partner-logo-img"><div class="logo-placeholder-box">NMCP</div></div>
+                        <span class="partner-name">NMCP</span>
+                    </div>
+                    <div class="partner-logo-card">
+                        <div class="partner-logo-img"><div class="logo-placeholder-box">PMI</div></div>
+                        <span class="partner-name">PMI Evolve</span>
+                    </div>
                 </div>
-                <div class="login-field">
-                    <label>PASSWORD</label>
-                    <input type="password" id="loginPassword" placeholder="Enter password">
+            </div>
+
+            <!-- LOGIN FORM -->
+            <div class="form-card">
+                <div class="form-content">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="section-title">USER LOGIN</h2>
+                            <p class="section-description">Sign in with your credentials to begin</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">USER ID <span class="required">*</span></label>
+                        <input type="text" class="form-input" id="loginUserId" placeholder="Enter your User ID" autocomplete="off">
+                        <div class="field-error" id="error_loginUserId"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">PASSWORD <span class="required">*</span></label>
+                        <input type="password" class="form-input" id="loginPassword" placeholder="Enter password">
+                        <div class="field-error" id="error_loginPassword"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">DISTRIBUTION POINT <span class="required">*</span></label>
+                        <select class="form-select" id="loginDistPoint">
+                            <option value="">Select Distribution Point...</option>
+                        </select>
+                        <div class="field-error" id="error_loginDistPoint"></div>
+                    </div>
+
+                    <div class="login-error-msg" id="loginError"></div>
+
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-nav btn-submit full-width" onclick="handleLogin()">
+                            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/>
+                            </svg>
+                            SIGN IN & START
+                        </button>
+                    </div>
                 </div>
-                <div class="login-field">
-                    <label>DISTRIBUTION POINT</label>
-                    <select id="loginDistPoint">
-                        <option value="">Select Distribution Point...</option>
-                    </select>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="page-footer">
+                <p class="footer-main">ITN Mass Campaign Distribution - Sierra Leone</p>
+                <div class="footer-partners">Ministry of Health | NMCP | PMI Evolve</div>
+                <p class="footer-copy">© 2025 Informatics Consultancy Firm-Sierra Leone (ICF-SL)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN APP SCREEN ==================== -->
+    <div class="main-content" id="appScreen" style="display:none;">
+        <div class="page-container">
+
+            <!-- HEADER -->
+            <div class="page-header compact">
+                <div class="header-row">
+                    <div class="header-left">
+                        <img src="https://github.com/mohamedsillahkanu/gdp-dashboard-2/raw/6c7463b0d5c3be150aafae695a4bcbbd8aeb1499/ICF-SL.jpg" alt="ICF-SL" class="header-logo-small">
+                        <div>
+                            <h1 class="compact-title">ITN MASS CAMPAIGN</h1>
+                            <p class="compact-subtitle">Distribution Management System</p>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <span class="user-tag" id="userTag">USER</span>
+                        <button class="logout-btn" onclick="handleLogout()" title="Log Out">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+                        </button>
+                    </div>
                 </div>
-                <div class="login-error" id="loginError"></div>
-                <button class="login-btn" id="loginBtn" onclick="handleLogin()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
-                    SIGN IN & START
+            </div>
+
+            <!-- GEO INFO BAR -->
+            <div class="geo-info-bar" id="geoBar">
+                <div class="geo-chip"><span class="geo-label">District:</span><span class="geo-value" id="geoDistrict">—</span></div>
+                <div class="geo-chip"><span class="geo-label">Chiefdom:</span><span class="geo-value" id="geoChiefdom">—</span></div>
+                <div class="geo-chip"><span class="geo-label">Community:</span><span class="geo-value" id="geoCommunity">—</span></div>
+                <div class="geo-chip highlight"><span class="geo-label">Dist. Point:</span><span class="geo-value" id="geoDP">—</span></div>
+            </div>
+
+            <!-- STATUS BAR -->
+            <div class="status-bar">
+                <div class="status-item">
+                    <div class="status-indicator" id="statusIndicator"></div>
+                    <span class="status-text" id="statusText">ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">REGISTERED:</span>
+                    <span class="draft-count" id="regCount">0</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">DISTRIBUTED:</span>
+                    <span class="pending-count" id="distCount">0</span>
+                </div>
+            </div>
+
+            <!-- TAB CONTROLS -->
+            <div class="controls-bar tab-controls">
+                <button class="control-btn active" data-tab="registration" onclick="switchTab('registration')">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/>
+                    </svg>
+                    REGISTRATION
+                </button>
+                <button class="control-btn" data-tab="distribution" onclick="switchTab('distribution')">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                    </svg>
+                    DISTRIBUTION
+                </button>
+                <button class="control-btn" data-tab="itnreceived" onclick="switchTab('itnreceived')">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                    </svg>
+                    ITN RECEIVED
+                </button>
+                <button class="control-btn" data-tab="dhissync" onclick="switchTab('dhissync')">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 2v6h-6M3 12a9 9 0 0115.36-6.36L21 8M3 22v-6h6M21 12a9 9 0 01-15.36 6.36L3 16"/>
+                    </svg>
+                    DHIS2 SYNC
                 </button>
             </div>
 
-            <div class="login-footer">
-                <span>MoHS</span><span>•</span><span>NMCP</span><span>•</span><span>PMI Evolve</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ==================== MAIN APP SCREEN ==================== -->
-<div class="screen" id="appScreen" style="display:none;">
-    
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        <div class="top-bar-left">
-            <div class="status-dot" id="appStatusDot"></div>
-            <span class="top-bar-title">ITN MASS CAMPAIGN</span>
-        </div>
-        <div class="top-bar-right">
-            <span class="user-badge" id="userBadge">USR</span>
-            <span class="dp-badge" id="dpBadge">DP</span>
-            <button class="logout-btn" onclick="handleLogout()">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
-            </button>
-        </div>
-    </div>
-
-    <!-- GEO INFO BAR -->
-    <div class="geo-bar" id="geoBar">
-        <div class="geo-item"><span class="geo-label">District:</span><span class="geo-value" id="geoDistrict">—</span></div>
-        <div class="geo-item"><span class="geo-label">Chiefdom:</span><span class="geo-value" id="geoChiefdom">—</span></div>
-        <div class="geo-item"><span class="geo-label">Community:</span><span class="geo-value" id="geoCommunity">—</span></div>
-        <div class="geo-item"><span class="geo-label">Dist. Point:</span><span class="geo-value" id="geoDP">—</span></div>
-    </div>
-
-    <!-- TAB NAVIGATION -->
-    <div class="tab-nav">
-        <button class="tab-btn active" data-tab="registration" onclick="switchTab('registration')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
-            <span>REGISTRATION</span>
-            <span class="tab-count" id="regCount">0</span>
-        </button>
-        <button class="tab-btn" data-tab="distribution" onclick="switchTab('distribution')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-            <span>DISTRIBUTION</span>
-            <span class="tab-count" id="distCount">0</span>
-        </button>
-        <button class="tab-btn" data-tab="itnreceived" onclick="switchTab('itnreceived')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            <span>ITN RECEIVED</span>
-        </button>
-        <button class="tab-btn" data-tab="dhissync" onclick="switchTab('dhissync')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0115.36-6.36L21 8M3 22v-6h6M21 12a9 9 0 01-15.36 6.36L3 16"/></svg>
-            <span>DHIS2 SYNC</span>
-        </button>
-    </div>
-
-    <!-- ==================== REGISTRATION TAB ==================== -->
-    <div class="tab-content active" id="tab-registration">
-        <div class="content-card">
-            <div class="card-header">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
-                <div>
-                    <h2>HOUSEHOLD REGISTRATION</h2>
-                    <p>Register household and generate vouchers</p>
-                </div>
-            </div>
-
-            <form id="regForm" onsubmit="return false;">
-                <!-- Household Head -->
-                <div class="form-block">
-                    <div class="block-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        HOUSEHOLD HEAD
-                    </div>
-                    <div class="field-row">
-                        <div class="field">
-                            <label>Full Name <span class="req">*</span></label>
-                            <input type="text" id="reg_hh_name" placeholder="Enter full name" required>
-                            <div class="field-err" id="err_reg_hh_name"></div>
-                        </div>
-                    </div>
-                    <div class="field-row two-col">
-                        <div class="field">
-                            <label>Phone Number <span class="req">*</span></label>
-                            <input type="tel" id="reg_hh_phone" placeholder="9 digits" maxlength="9" required>
-                            <div class="field-err" id="err_reg_hh_phone"></div>
-                        </div>
-                        <div class="field">
-                            <label>Household ID</label>
-                            <input type="text" id="reg_hh_id" readonly class="readonly-field">
-                            <div class="field-hint">Auto-generated</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Household Members -->
-                <div class="form-block">
-                    <div class="block-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-                        HOUSEHOLD MEMBERS
-                    </div>
-                    <div class="field-row">
-                        <div class="field">
-                            <label>Total Number of People <span class="req">*</span></label>
-                            <input type="number" id="reg_total_people" min="1" max="50" placeholder="0" required oninput="onTotalPeopleChange()">
-                            <div class="field-err" id="err_reg_total_people"></div>
-                        </div>
-                    </div>
-                    <div class="field-row two-col">
-                        <div class="field">
-                            <label>Number of Males <span class="req">*</span></label>
-                            <input type="number" id="reg_males" min="0" placeholder="0" required oninput="onGenderChange()">
-                            <div class="field-err" id="err_reg_males"></div>
-                        </div>
-                        <div class="field">
-                            <label>Number of Females <span class="req">*</span></label>
-                            <input type="number" id="reg_females" min="0" placeholder="0" required oninput="onGenderChange()">
-                            <div class="field-err" id="err_reg_females"></div>
-                        </div>
-                    </div>
-                    <div class="gender-check" id="genderCheck" style="display:none;">
-                        <span class="check-icon" id="genderCheckIcon">⚠</span>
-                        <span id="genderCheckText">Males + Females must equal total people</span>
-                    </div>
-                    <div class="field-row two-col">
-                        <div class="field">
-                            <label>Children Under 5 years <span class="req">*</span></label>
-                            <input type="number" id="reg_under5" min="0" placeholder="0" required oninput="onVulnerableChange()">
-                            <div class="field-err" id="err_reg_under5"></div>
-                        </div>
-                        <div class="field">
-                            <label>Pregnant Women <span class="req">*</span></label>
-                            <input type="number" id="reg_pregnant" min="0" placeholder="0" required oninput="onVulnerableChange()">
-                            <div class="field-err" id="err_reg_pregnant"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Voucher Summary -->
-                <div class="form-block highlight-block" id="voucherSummary" style="display:none;">
-                    <div class="block-title accent">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/></svg>
-                        VOUCHER ALLOCATION
-                    </div>
-                    <div class="voucher-info">
-                        <div class="voucher-stat">
-                            <span class="voucher-num" id="voucherCount">0</span>
-                            <span class="voucher-label">VOUCHERS TO SCAN</span>
-                        </div>
-                        <div class="voucher-formula" id="voucherFormula">
-                            Based on household size
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Barcode Scanners -->
-                <div class="form-block" id="scannerBlock" style="display:none;">
-                    <div class="block-title accent">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h3v3H7zM14 7h3v3h-3zM7 14h3v3H7z"/></svg>
-                        SCAN VOUCHER BARCODES
-                    </div>
-                    <div class="scanner-grid" id="scannerGrid"></div>
-                </div>
-
-                <!-- GPS -->
-                <div class="form-block">
-                    <div class="block-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        GPS LOCATION
-                    </div>
-                    <div class="gps-box">
-                        <div class="gps-status-row">
-                            <div class="gps-dot" id="regGpsDot"></div>
+            <!-- ==================== REGISTRATION TAB ==================== -->
+            <div class="tab-panel active" id="tab-registration">
+                <div class="form-card">
+                    <div class="form-content">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/>
+                                </svg>
+                            </div>
                             <div>
-                                <div class="gps-text" id="regGpsText">Capturing GPS...</div>
-                                <div class="gps-coords-text" id="regGpsCoords"></div>
+                                <h2 class="section-title">HOUSEHOLD REGISTRATION</h2>
+                                <p class="section-description">Register household and scan voucher barcodes</p>
                             </div>
                         </div>
-                        <button type="button" class="gps-retry-btn" onclick="captureRegGPS()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
-                            RETRY
-                        </button>
-                    </div>
-                    <input type="hidden" id="reg_gps_lat">
-                    <input type="hidden" id="reg_gps_lng">
-                    <input type="hidden" id="reg_gps_acc">
-                </div>
 
-                <!-- Submit -->
-                <button type="button" class="submit-btn" id="regSubmitBtn" onclick="submitRegistration()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    REGISTER HOUSEHOLD
-                </button>
-            </form>
+                        <form id="regForm" onsubmit="return false;">
+
+                            <!-- Household Head Block -->
+                            <div class="class-block">
+                                <div class="class-header">
+                                    <svg class="class-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                    HOUSEHOLD HEAD INFORMATION
+                                </div>
+                                <div class="class-grid">
+                                    <div class="form-group" style="grid-column: span 2;">
+                                        <label class="form-label">FULL NAME <span class="required">*</span></label>
+                                        <input type="text" class="form-input name-field" id="reg_hh_name" placeholder="Enter household head full name" required>
+                                        <div class="field-error" id="error_reg_hh_name"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">PHONE NUMBER <span class="required">*</span></label>
+                                        <input type="tel" class="form-input phone-field" id="reg_hh_phone" placeholder="9-digit number" maxlength="9" required>
+                                        <div class="field-hint">Enter 9-digit phone number</div>
+                                        <div class="field-error" id="error_reg_hh_phone"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">HOUSEHOLD ID</label>
+                                        <input type="text" class="form-input" id="reg_hh_id" readonly style="background:#e9ecef; color:#0056a8; font-weight:700;">
+                                        <div class="field-hint">Auto-generated</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Household Members Block -->
+                            <div class="class-block">
+                                <div class="class-header">
+                                    <svg class="class-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                                    </svg>
+                                    HOUSEHOLD MEMBERS
+                                </div>
+                                <div class="class-grid">
+                                    <div class="form-group" style="grid-column: span 2;">
+                                        <label class="form-label">TOTAL NUMBER OF PEOPLE IN HOUSEHOLD <span class="required">*</span></label>
+                                        <input type="number" class="form-input" id="reg_total_people" min="1" max="50" placeholder="0" required oninput="onTotalPeopleChange()">
+                                        <div class="field-error" id="error_reg_total_people"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">NUMBER OF MALES <span class="required">*</span></label>
+                                        <input type="number" class="form-input" id="reg_males" min="0" placeholder="0" required oninput="onGenderChange()">
+                                        <div class="field-error" id="error_reg_males"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">NUMBER OF FEMALES <span class="required">*</span></label>
+                                        <input type="number" class="form-input" id="reg_females" min="0" placeholder="0" required oninput="onGenderChange()">
+                                        <div class="field-error" id="error_reg_females"></div>
+                                    </div>
+                                </div>
+                                <!-- Gender validation check -->
+                                <div class="validation-note gender-check" id="genderCheck" style="display:none;">
+                                    <svg class="note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                                    </svg>
+                                    <span id="genderCheckText">Males + Females must equal total people</span>
+                                </div>
+                                <div class="class-grid" style="border-top: 1px solid #dee2e6;">
+                                    <div class="form-group">
+                                        <label class="form-label">CHILDREN UNDER 5 YEARS <span class="required">*</span></label>
+                                        <input type="number" class="form-input" id="reg_under5" min="0" placeholder="0" required oninput="onVulnerableChange()">
+                                        <div class="field-error" id="error_reg_under5"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">PREGNANT WOMEN <span class="required">*</span></label>
+                                        <input type="number" class="form-input" id="reg_pregnant" min="0" placeholder="0" required oninput="onVulnerableChange()">
+                                        <div class="field-error" id="error_reg_pregnant"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Voucher Allocation -->
+                            <div class="dashboard-block" id="voucherSummary" style="display:none;">
+                                <div class="dashboard-header">
+                                    <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/>
+                                    </svg>
+                                    VOUCHER ALLOCATION
+                                </div>
+                                <div class="dashboard-cards">
+                                    <div class="dash-card green large">
+                                        <div class="dash-label">Vouchers to Scan</div>
+                                        <div class="dash-value big" id="voucherCount">0</div>
+                                        <div class="remaining-status" id="voucherFormula">Based on household size</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Barcode Scanners -->
+                            <div class="class-block" id="scannerBlock" style="display:none;">
+                                <div class="class-header" style="background:#28a745;">
+                                    <svg class="class-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h3v3H7zM14 7h3v3h-3zM7 14h3v3H7z"/>
+                                    </svg>
+                                    SCAN VOUCHER BARCODES
+                                </div>
+                                <div class="scanner-area" id="scannerGrid"></div>
+                            </div>
+
+                            <!-- GPS -->
+                            <div class="class-block">
+                                <div class="class-header">
+                                    <svg class="class-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    GPS LOCATION
+                                </div>
+                                <div style="padding: 12px 15px;">
+                                    <div class="gps-container">
+                                        <div class="gps-status">
+                                            <div class="gps-icon" id="regGpsDot"></div>
+                                            <div>
+                                                <div class="gps-info" id="regGpsText">Capturing GPS...</div>
+                                                <div class="gps-coords" id="regGpsCoords"></div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="gps-btn" onclick="captureRegGPS()">
+                                            <svg class="retry-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
+                                            </svg>
+                                            RETRY
+                                        </button>
+                                    </div>
+                                    <input type="hidden" id="reg_gps_lat">
+                                    <input type="hidden" id="reg_gps_lng">
+                                    <input type="hidden" id="reg_gps_acc">
+                                </div>
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="navigation-buttons">
+                                <button type="button" class="btn-nav btn-submit full-width" onclick="submitRegistration()">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    REGISTER HOUSEHOLD
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== DISTRIBUTION TAB ==================== -->
+            <div class="tab-panel" id="tab-distribution">
+                <div class="form-card">
+                    <div class="form-content">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="section-title">ITN DISTRIBUTION</h2>
+                                <p class="section-description">Scan voucher to verify and distribute ITNs</p>
+                            </div>
+                        </div>
+
+                        <!-- Scan Voucher -->
+                        <div class="itn-received-block">
+                            <div class="itn-received-header" style="background:#28a745;">
+                                <svg class="block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h3v3H7zM14 7h3v3h-3zM7 14h3v3H7z"/>
+                                </svg>
+                                SCAN VOUCHER FOR DISTRIBUTION
+                            </div>
+                            <div class="itn-received-content">
+                                <div class="scanner-input-row">
+                                    <input type="text" class="form-input scanner-input-large" id="dist_voucher_scan" placeholder="Scan or enter voucher barcode...">
+                                    <button type="button" class="btn-nav btn-next" onclick="verifyVoucher()" style="min-width:120px;">
+                                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                                        VERIFY
+                                    </button>
+                                </div>
+                                <div class="field-hint" style="text-align:center; margin-top:8px;">Point camera at voucher barcode or type voucher number and press VERIFY</div>
+                            </div>
+                        </div>
+
+                        <!-- Verification Result -->
+                        <div id="verifyResultBlock" style="display:none;">
+                            <div id="verifyResult"></div>
+                        </div>
+
+                        <!-- Recent Distributions -->
+                        <div class="dashboard-block">
+                            <div class="dashboard-header">
+                                <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3h18v18H3zM3 9h18M9 21V9"/>
+                                </svg>
+                                RECENT DISTRIBUTIONS
+                            </div>
+                            <div class="dist-history-container" id="distHistory">
+                                <div class="no-data">No distributions yet today</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== ITN RECEIVED TAB ==================== -->
+            <div class="tab-panel" id="tab-itnreceived">
+                <div class="form-card">
+                    <div class="form-content">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="section-title">ITN STOCK RECEIVED</h2>
+                                <p class="section-description">Record ITN stock received at distribution point</p>
+                            </div>
+                        </div>
+
+                        <form id="itnReceivedForm" onsubmit="return false;">
+                            <div class="class-block">
+                                <div class="class-header">
+                                    <svg class="class-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                    </svg>
+                                    STOCK DETAILS
+                                </div>
+                                <div class="class-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">DATE RECEIVED <span class="required">*</span></label>
+                                        <input type="date" class="form-input" id="itn_recv_date" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">BATCH NUMBER</label>
+                                        <input type="text" class="form-input" id="itn_batch" placeholder="e.g., BATCH-2025-001">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">ITN TYPE <span class="required">*</span></label>
+                                        <select class="form-select" id="itn_recv_type" required>
+                                            <option value="">Select Type...</option>
+                                            <option value="PBO">PBO (Piperonyl Butoxide)</option>
+                                            <option value="IG2">IG2 (Interceptor G2)</option>
+                                            <option value="Mixed">Mixed (PBO + IG2)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">QUANTITY RECEIVED <span class="required">*</span></label>
+                                        <input type="number" class="form-input" id="itn_recv_qty" min="1" placeholder="0" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">RECEIVED FROM</label>
+                                        <input type="text" class="form-input" id="itn_recv_from" placeholder="e.g., District Store">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">NOTES</label>
+                                        <input type="text" class="form-input" id="itn_recv_notes" placeholder="Any remarks...">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="navigation-buttons">
+                                <button type="button" class="btn-nav btn-submit full-width" onclick="submitITNReceived()">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    RECORD STOCK RECEIVED
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Stock Summary -->
+                        <div class="dashboard-block">
+                            <div class="dashboard-header">
+                                <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 20V10M12 20V4M6 20v-6"/>
+                                </svg>
+                                STOCK SUMMARY
+                            </div>
+                            <div class="dashboard-cards">
+                                <div class="dash-card blue">
+                                    <div class="dash-label">Total Received</div>
+                                    <div class="dash-value" id="stockReceived">0</div>
+                                </div>
+                                <div class="dash-card green">
+                                    <div class="dash-label">Total Distributed</div>
+                                    <div class="dash-value" id="stockDistributed">0</div>
+                                </div>
+                                <div class="dash-card orange">
+                                    <div class="dash-label">Remaining</div>
+                                    <div class="dash-value" id="stockRemaining">0</div>
+                                </div>
+                            </div>
+                            <div class="stock-history-list" id="stockHistory">
+                                <div class="no-data">No stock records yet</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== DHIS2 SYNC TAB ==================== -->
+            <div class="tab-panel" id="tab-dhissync">
+                <div class="form-card">
+                    <div class="form-content">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 2v6h-6M3 12a9 9 0 0115.36-6.36L21 8M3 22v-6h6M21 12a9 9 0 01-15.36 6.36L3 16"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="section-title">DHIS2 SYNCHRONIZATION</h2>
+                                <p class="section-description">Sync collected data with DHIS2 instance</p>
+                            </div>
+                        </div>
+
+                        <!-- Sync Config -->
+                        <div class="class-block">
+                            <div class="class-header">
+                                <svg class="class-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06"/>
+                                </svg>
+                                DHIS2 CONFIGURATION
+                            </div>
+                            <div class="class-grid">
+                                <div class="form-group" style="grid-column: span 2;">
+                                    <label class="form-label">DHIS2 SERVER URL</label>
+                                    <input type="url" class="form-input" id="dhis2Url" placeholder="https://dhis2.example.org">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">USERNAME</label>
+                                    <input type="text" class="form-input" id="dhis2User" placeholder="DHIS2 username">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">PASSWORD</label>
+                                    <input type="password" class="form-input" id="dhis2Pass" placeholder="DHIS2 password">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sync Status -->
+                        <div class="dashboard-block">
+                            <div class="dashboard-header" style="background:#28a745;">
+                                <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                SYNC STATUS
+                            </div>
+                            <div class="dashboard-cards" style="grid-template-columns: repeat(2, 1fr);">
+                                <div class="dash-card blue">
+                                    <div class="dash-label">Pending Registrations</div>
+                                    <div class="dash-value" id="syncPendingReg">0</div>
+                                </div>
+                                <div class="dash-card pink">
+                                    <div class="dash-label">Pending Distributions</div>
+                                    <div class="dash-value" id="syncPendingDist">0</div>
+                                </div>
+                                <div class="dash-card orange">
+                                    <div class="dash-label">Pending Stock Records</div>
+                                    <div class="dash-value" id="syncPendingStock">0</div>
+                                </div>
+                                <div class="dash-card green">
+                                    <div class="dash-label">Total Synced</div>
+                                    <div class="dash-value" id="syncTotal">0</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="navigation-buttons">
+                            <button type="button" class="btn-nav btn-submit" onclick="syncToDHIS2()">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0115.36-6.36L21 8"/></svg>
+                                SYNC NOW
+                            </button>
+                            <button type="button" class="btn-nav btn-draft" onclick="exportData()">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                                EXPORT CSV
+                            </button>
+                        </div>
+
+                        <!-- Sync Log -->
+                        <div class="dashboard-block">
+                            <div class="dashboard-header">
+                                <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                SYNC LOG
+                            </div>
+                            <div class="sync-log-container" id="syncLog">
+                                <div class="no-data">No sync activity yet</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="page-footer">
+                <p class="footer-main">ITN Mass Campaign Distribution - Sierra Leone</p>
+                <div class="footer-partners">Ministry of Health | NMCP | PMI Evolve</div>
+                <p class="footer-copy">© 2025 Informatics Consultancy Firm-Sierra Leone (ICF-SL)</p>
+            </div>
         </div>
     </div>
 
-    <!-- ==================== DISTRIBUTION TAB ==================== -->
-    <div class="tab-content" id="tab-distribution">
-        <div class="content-card">
-            <div class="card-header">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-                <div>
-                    <h2>ITN DISTRIBUTION</h2>
-                    <p>Scan voucher to verify and distribute ITNs</p>
-                </div>
-            </div>
+    <!-- NOTIFICATION -->
+    <div class="notification" id="notification"><span id="notificationText"></span></div>
 
-            <!-- Scan Voucher for Distribution -->
-            <div class="form-block">
-                <div class="block-title accent">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h3v3H7zM14 7h3v3h-3zM7 14h3v3H7z"/></svg>
-                    SCAN VOUCHER FOR DISTRIBUTION
-                </div>
-                <div class="dist-scanner-area">
-                    <div class="scanner-input-row">
-                        <input type="text" id="dist_voucher_scan" class="scanner-input-large" placeholder="Scan or enter voucher barcode..." autofocus>
-                        <button type="button" class="scan-verify-btn" onclick="verifyVoucher()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-                            VERIFY
-                        </button>
-                    </div>
-                    <div class="scan-hint">Point camera at voucher barcode or type voucher number manually</div>
-                </div>
-            </div>
-
-            <!-- Verification Result -->
-            <div class="form-block" id="verifyResultBlock" style="display:none;">
-                <div class="verify-result" id="verifyResult">
-                    <!-- Dynamic content injected here -->
-                </div>
-            </div>
-
-            <!-- Distribution History -->
-            <div class="form-block">
-                <div class="block-title">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
-                    RECENT DISTRIBUTIONS
-                </div>
-                <div class="dist-history" id="distHistory">
-                    <div class="empty-state">No distributions yet today</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== ITN RECEIVED TAB ==================== -->
-    <div class="tab-content" id="tab-itnreceived">
-        <div class="content-card">
-            <div class="card-header">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                <div>
-                    <h2>ITN STOCK RECEIVED</h2>
-                    <p>Record ITN stock received at distribution point</p>
-                </div>
-            </div>
-
-            <form id="itnReceivedForm" onsubmit="return false;">
-                <div class="form-block">
-                    <div class="block-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-                        STOCK DETAILS
-                    </div>
-                    <div class="field-row">
-                        <div class="field">
-                            <label>Date Received <span class="req">*</span></label>
-                            <input type="date" id="itn_recv_date" required>
-                        </div>
-                    </div>
-                    <div class="field-row two-col">
-                        <div class="field">
-                            <label>Batch Number</label>
-                            <input type="text" id="itn_batch" placeholder="e.g., BATCH-2025-001">
-                        </div>
-                        <div class="field">
-                            <label>ITN Type <span class="req">*</span></label>
-                            <select id="itn_recv_type" required>
-                                <option value="">Select Type...</option>
-                                <option value="PBO">PBO (Piperonyl Butoxide)</option>
-                                <option value="IG2">IG2 (Interceptor G2)</option>
-                                <option value="Mixed">Mixed (PBO + IG2)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="field-row two-col">
-                        <div class="field">
-                            <label>Quantity Received <span class="req">*</span></label>
-                            <input type="number" id="itn_recv_qty" min="1" placeholder="0" required>
-                        </div>
-                        <div class="field">
-                            <label>Received From</label>
-                            <input type="text" id="itn_recv_from" placeholder="e.g., District Store">
-                        </div>
-                    </div>
-                    <div class="field-row">
-                        <div class="field">
-                            <label>Notes</label>
-                            <textarea id="itn_recv_notes" rows="2" placeholder="Any remarks..."></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <button type="button" class="submit-btn" onclick="submitITNReceived()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    RECORD STOCK RECEIVED
-                </button>
-
-                <!-- Stock Summary -->
-                <div class="form-block" style="margin-top:20px;">
-                    <div class="block-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-                        STOCK SUMMARY
-                    </div>
-                    <div class="stock-grid">
-                        <div class="stock-card received">
-                            <div class="stock-num" id="stockReceived">0</div>
-                            <div class="stock-label">RECEIVED</div>
-                        </div>
-                        <div class="stock-card distributed">
-                            <div class="stock-num" id="stockDistributed">0</div>
-                            <div class="stock-label">DISTRIBUTED</div>
-                        </div>
-                        <div class="stock-card remaining">
-                            <div class="stock-num" id="stockRemaining">0</div>
-                            <div class="stock-label">REMAINING</div>
-                        </div>
-                    </div>
-                    <div class="stock-history" id="stockHistory">
-                        <div class="empty-state">No stock records yet</div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- ==================== DHIS2 SYNC TAB ==================== -->
-    <div class="tab-content" id="tab-dhissync">
-        <div class="content-card">
-            <div class="card-header">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0115.36-6.36L21 8M3 22v-6h6M21 12a9 9 0 01-15.36 6.36L3 16"/></svg>
-                <div>
-                    <h2>DHIS2 SYNCHRONIZATION</h2>
-                    <p>Sync collected data with DHIS2 instance</p>
-                </div>
-            </div>
-
-            <!-- Sync Config -->
-            <div class="form-block">
-                <div class="block-title">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-                    DHIS2 CONFIGURATION
-                </div>
-                <div class="field-row">
-                    <div class="field">
-                        <label>DHIS2 Server URL</label>
-                        <input type="url" id="dhis2Url" placeholder="https://dhis2.example.org">
-                    </div>
-                </div>
-                <div class="field-row two-col">
-                    <div class="field">
-                        <label>Username</label>
-                        <input type="text" id="dhis2User" placeholder="DHIS2 username">
-                    </div>
-                    <div class="field">
-                        <label>Password</label>
-                        <input type="password" id="dhis2Pass" placeholder="DHIS2 password">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sync Status -->
-            <div class="form-block">
-                <div class="block-title accent">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    SYNC STATUS
-                </div>
-                <div class="sync-stats">
-                    <div class="sync-stat-item">
-                        <span class="sync-stat-num" id="syncPendingReg">0</span>
-                        <span class="sync-stat-label">Pending Registrations</span>
-                    </div>
-                    <div class="sync-stat-item">
-                        <span class="sync-stat-num" id="syncPendingDist">0</span>
-                        <span class="sync-stat-label">Pending Distributions</span>
-                    </div>
-                    <div class="sync-stat-item">
-                        <span class="sync-stat-num" id="syncPendingStock">0</span>
-                        <span class="sync-stat-label">Pending Stock Records</span>
-                    </div>
-                    <div class="sync-stat-item success">
-                        <span class="sync-stat-num" id="syncTotal">0</span>
-                        <span class="sync-stat-label">Total Synced</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sync-actions">
-                <button type="button" class="submit-btn" onclick="syncToDHIS2()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0115.36-6.36L21 8M3 22v-6h6M21 12a9 9 0 01-15.36 6.36L3 16"/></svg>
-                    SYNC NOW
-                </button>
-                <button type="button" class="secondary-btn" onclick="exportData()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                    EXPORT CSV
-                </button>
-            </div>
-
-            <!-- Sync Log -->
-            <div class="form-block" style="margin-top:15px;">
-                <div class="block-title">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    SYNC LOG
-                </div>
-                <div class="sync-log" id="syncLog">
-                    <div class="empty-state">No sync activity yet</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- NOTIFICATION -->
-<div class="notification" id="notification"><span id="notificationText"></span></div>
-
-<!-- ==================== STYLES ==================== -->
-<style>
-:root {
-    --bg: #0a1628;
-    --bg2: #0f1f38;
-    --bg3: #152a4a;
-    --surface: #1a2d4d;
-    --surface2: #1e3455;
-    --border: #2a4270;
-    --border2: #3a5a8f;
-    --text: #e0e8f5;
-    --text2: #8da0c0;
-    --text3: #5a7199;
-    --accent: #00d4aa;
-    --accent2: #00b894;
-    --accent-glow: rgba(0,212,170,0.15);
-    --red: #ff4757;
-    --red-bg: rgba(255,71,87,0.1);
-    --yellow: #ffc107;
-    --yellow-bg: rgba(255,193,7,0.1);
-    --blue: #3498db;
-    --green: #00d4aa;
-    --pink: #e91e8c;
-}
-
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background: var(--bg); color: var(--text); font-family: 'Oswald', sans-serif; overflow-x: hidden; }
-.screen { min-height: 100vh; }
-
-/* ===== LOGIN ===== */
-.login-container { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; position:relative; background: radial-gradient(ellipse at 50% 0%, rgba(0,212,170,0.08) 0%, transparent 60%); }
-.login-glow { position:absolute; top:-100px; left:50%; transform:translateX(-50%); width:400px; height:400px; background:radial-gradient(circle, rgba(0,212,170,0.1) 0%, transparent 70%); pointer-events:none; }
-.login-card { background: var(--bg2); border:2px solid var(--border); border-radius:16px; padding:40px 30px; max-width:420px; width:100%; position:relative; z-index:1; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-.login-header { text-align:center; margin-bottom:30px; }
-.login-logo svg { width:60px; height:60px; margin-bottom:15px; }
-.login-title { font-size:26px; font-weight:700; letter-spacing:3px; color:var(--accent); }
-.login-subtitle { font-size:12px; color:var(--text2); letter-spacing:1px; font-weight:300; margin-top:5px; }
-.login-divider { width:40px; height:3px; background:var(--accent); margin:15px auto; border-radius:2px; }
-.login-org { font-size:11px; color:var(--text3); letter-spacing:1px; }
-.login-form { display:flex; flex-direction:column; gap:18px; }
-.login-field label { display:block; font-size:11px; font-weight:600; color:var(--text2); letter-spacing:1.5px; margin-bottom:6px; }
-.login-field input, .login-field select { width:100%; padding:12px 14px; background:var(--bg); border:2px solid var(--border); border-radius:8px; color:var(--text); font-family:'JetBrains Mono', monospace; font-size:14px; transition:all 0.2s; }
-.login-field input:focus, .login-field select:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-glow); }
-.login-field input::placeholder { color:var(--text3); }
-.login-field select { font-family:'Oswald', sans-serif; }
-.login-field select option { background:var(--bg2); color:var(--text); }
-.login-error { color:var(--red); font-size:12px; min-height:18px; text-align:center; }
-.login-btn { width:100%; padding:14px; background:var(--accent); color:var(--bg); border:none; border-radius:8px; font-family:'Oswald',sans-serif; font-size:15px; font-weight:700; letter-spacing:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; transition:all 0.2s; text-transform:uppercase; }
-.login-btn:hover { background:var(--accent2); transform:translateY(-1px); box-shadow:0 4px 15px rgba(0,212,170,0.3); }
-.login-btn svg { width:20px; height:20px; }
-.login-footer { text-align:center; margin-top:25px; font-size:10px; color:var(--text3); letter-spacing:1px; display:flex; gap:8px; justify-content:center; }
-
-/* ===== TOP BAR ===== */
-.top-bar { background:var(--bg2); border-bottom:2px solid var(--border); padding:12px 16px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; }
-.top-bar-left { display:flex; align-items:center; gap:10px; }
-.status-dot { width:8px; height:8px; border-radius:50%; background:var(--accent); }
-.status-dot.offline { background:var(--red); }
-.top-bar-title { font-size:14px; font-weight:600; letter-spacing:2px; color:var(--accent); }
-.top-bar-right { display:flex; align-items:center; gap:8px; }
-.user-badge, .dp-badge { padding:4px 10px; border-radius:12px; font-size:10px; font-weight:700; letter-spacing:1px; }
-.user-badge { background:var(--accent-glow); color:var(--accent); border:1px solid rgba(0,212,170,0.3); }
-.dp-badge { background:var(--yellow-bg); color:var(--yellow); border:1px solid rgba(255,193,7,0.3); }
-.logout-btn { background:none; border:1px solid var(--border); border-radius:6px; padding:6px; cursor:pointer; color:var(--text2); transition:all 0.2s; }
-.logout-btn:hover { border-color:var(--red); color:var(--red); }
-.logout-btn svg { width:16px; height:16px; }
-
-/* ===== GEO BAR ===== */
-.geo-bar { background:var(--bg); border-bottom:1px solid var(--border); padding:8px 16px; display:flex; gap:15px; flex-wrap:wrap; overflow-x:auto; }
-.geo-item { display:flex; gap:5px; align-items:center; white-space:nowrap; }
-.geo-label { font-size:9px; color:var(--text3); letter-spacing:1px; text-transform:uppercase; }
-.geo-value { font-size:11px; color:var(--accent); font-weight:600; }
-
-/* ===== TAB NAV ===== */
-.tab-nav { display:grid; grid-template-columns:repeat(4,1fr); background:var(--bg2); border-bottom:2px solid var(--border); }
-.tab-btn { background:none; border:none; padding:12px 6px; color:var(--text3); font-family:'Oswald',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.5px; text-transform:uppercase; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:4px; border-bottom:3px solid transparent; transition:all 0.2s; position:relative; }
-.tab-btn svg { width:18px; height:18px; }
-.tab-btn.active { color:var(--accent); border-bottom-color:var(--accent); background:var(--accent-glow); }
-.tab-btn:hover { color:var(--text); background:rgba(255,255,255,0.03); }
-.tab-count { position:absolute; top:6px; right:10px; background:var(--red); color:#fff; font-size:9px; padding:1px 6px; border-radius:10px; font-weight:700; }
-
-/* ===== TAB CONTENT ===== */
-.tab-content { display:none; padding:12px; max-width:700px; margin:0 auto; }
-.tab-content.active { display:block; }
-.content-card { background:var(--bg2); border:2px solid var(--border); border-radius:12px; overflow:hidden; }
-.card-header { display:flex; gap:12px; align-items:flex-start; padding:20px; border-bottom:2px solid var(--border); background:var(--bg3); }
-.card-header svg { width:28px; height:28px; stroke:var(--accent); flex-shrink:0; margin-top:2px; }
-.card-header h2 { font-size:16px; font-weight:600; letter-spacing:2px; color:var(--text); }
-.card-header p { font-size:11px; color:var(--text2); font-weight:300; margin-top:3px; }
-
-/* ===== FORM BLOCKS ===== */
-.form-block { margin:15px; background:var(--surface); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
-.form-block.highlight-block { border-color:var(--accent); background:rgba(0,212,170,0.05); }
-.block-title { padding:12px 15px; font-size:12px; font-weight:600; letter-spacing:1.5px; color:var(--text2); display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--border); background:var(--surface2); }
-.block-title svg { width:16px; height:16px; stroke:var(--text2); }
-.block-title.accent { color:var(--accent); background:rgba(0,212,170,0.08); border-bottom-color:rgba(0,212,170,0.2); }
-.block-title.accent svg { stroke:var(--accent); }
-
-.field-row { padding:12px 15px; }
-.field-row.two-col { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-.field label { display:block; font-size:10px; font-weight:600; color:var(--text2); letter-spacing:1px; margin-bottom:5px; text-transform:uppercase; }
-.req { color:var(--red); font-weight:700; }
-.field input, .field select, .field textarea { width:100%; padding:10px 12px; background:var(--bg); border:2px solid var(--border); border-radius:6px; color:var(--text); font-family:'JetBrains Mono',monospace; font-size:13px; transition:all 0.2s; }
-.field textarea { font-family:'Oswald',sans-serif; resize:vertical; }
-.field input:focus, .field select:focus, .field textarea:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-glow); }
-.field input::placeholder, .field textarea::placeholder { color:var(--text3); }
-.field select { font-family:'Oswald',sans-serif; }
-.field select option { background:var(--bg2); }
-.field input.error { border-color:var(--red); background:var(--red-bg); }
-.field input.readonly-field { background:var(--surface); cursor:not-allowed; color:var(--accent); font-weight:600; }
-.field-err { font-size:10px; color:var(--red); min-height:14px; margin-top:3px; }
-.field-hint { font-size:9px; color:var(--text3); margin-top:3px; font-style:italic; }
-
-/* Gender Check */
-.gender-check { margin:0 15px 12px; padding:8px 12px; border-radius:6px; font-size:11px; display:flex; align-items:center; gap:8px; }
-.gender-check.match { background:rgba(0,212,170,0.1); color:var(--accent); border:1px solid rgba(0,212,170,0.3); }
-.gender-check.mismatch { background:var(--red-bg); color:var(--red); border:1px solid rgba(255,71,87,0.3); }
-
-/* Voucher Summary */
-.voucher-info { padding:20px; text-align:center; }
-.voucher-stat { display:flex; flex-direction:column; align-items:center; gap:5px; }
-.voucher-num { font-size:48px; font-weight:700; color:var(--accent); line-height:1; font-family:'JetBrains Mono',monospace; }
-.voucher-label { font-size:12px; color:var(--text2); letter-spacing:2px; }
-.voucher-formula { font-size:11px; color:var(--text3); margin-top:10px; padding:8px 15px; background:var(--bg); border-radius:6px; display:inline-block; }
-
-/* Scanner */
-.scanner-grid { padding:15px; display:flex; flex-direction:column; gap:10px; }
-.scanner-row { display:flex; gap:8px; align-items:center; }
-.scanner-label { font-size:11px; color:var(--text2); font-weight:600; min-width:85px; letter-spacing:1px; }
-.scanner-input { flex:1; padding:10px 12px; background:var(--bg); border:2px solid var(--border); border-radius:6px; color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:1px; }
-.scanner-input:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-glow); outline:none; }
-.scanner-input.scanned { border-color:var(--accent); background:rgba(0,212,170,0.05); }
-.scanner-input.error { border-color:var(--red); background:var(--red-bg); }
-.scanner-status { width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; }
-.scanner-status.pending { background:var(--surface); color:var(--text3); }
-.scanner-status.ok { background:rgba(0,212,170,0.2); color:var(--accent); }
-.scanner-status.fail { background:var(--red-bg); color:var(--red); }
-
-/* Distribution Scanner */
-.dist-scanner-area { padding:15px; }
-.scanner-input-row { display:flex; gap:8px; }
-.scanner-input-large { flex:1; padding:14px; background:var(--bg); border:2px solid var(--accent); border-radius:8px; color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:16px; letter-spacing:2px; }
-.scanner-input-large:focus { outline:none; box-shadow:0 0 0 4px var(--accent-glow); }
-.scanner-input-large::placeholder { color:var(--text3); font-size:12px; letter-spacing:0.5px; }
-.scan-verify-btn { padding:14px 20px; background:var(--accent); color:var(--bg); border:none; border-radius:8px; font-family:'Oswald',sans-serif; font-size:13px; font-weight:700; letter-spacing:1px; cursor:pointer; display:flex; align-items:center; gap:6px; white-space:nowrap; transition:all 0.2s; }
-.scan-verify-btn:hover { background:var(--accent2); }
-.scan-verify-btn svg { width:18px; height:18px; }
-.scan-hint { font-size:10px; color:var(--text3); margin-top:8px; text-align:center; }
-
-/* Verify Result */
-.verify-result { padding:20px; }
-.verify-pass { background:rgba(0,212,170,0.08); border:2px solid rgba(0,212,170,0.3); border-radius:10px; padding:20px; }
-.verify-fail { background:var(--red-bg); border:2px solid rgba(255,71,87,0.3); border-radius:10px; padding:20px; }
-.verify-title { font-size:16px; font-weight:700; display:flex; align-items:center; gap:10px; margin-bottom:12px; }
-.verify-pass .verify-title { color:var(--accent); }
-.verify-fail .verify-title { color:var(--red); }
-.verify-detail { font-size:12px; color:var(--text2); line-height:1.8; }
-.verify-detail strong { color:var(--text); }
-.verify-issues { margin-top:12px; }
-.verify-issue { display:flex; gap:8px; align-items:flex-start; padding:8px 12px; background:rgba(255,71,87,0.08); border-radius:6px; margin-bottom:6px; font-size:12px; color:var(--red); }
-.verify-tips { margin-top:15px; padding:12px; background:var(--yellow-bg); border:1px solid rgba(255,193,7,0.3); border-radius:8px; }
-.verify-tips-title { font-size:12px; font-weight:700; color:var(--yellow); margin-bottom:8px; display:flex; align-items:center; gap:6px; }
-.verify-tip { font-size:11px; color:var(--text2); line-height:1.6; padding-left:15px; position:relative; margin-bottom:4px; }
-.verify-tip::before { content:"→"; position:absolute; left:0; color:var(--yellow); }
-.verify-action { margin-top:15px; display:flex; gap:10px; }
-.verify-action .submit-btn { flex:1; }
-
-/* GPS */
-.gps-box { padding:12px 15px; display:flex; justify-content:space-between; align-items:center; }
-.gps-status-row { display:flex; align-items:center; gap:10px; }
-.gps-dot { width:12px; height:12px; border-radius:50%; background:var(--text3); }
-.gps-dot.loading { background:var(--yellow); animation:pulse 1s infinite; }
-.gps-dot.success { background:var(--accent); }
-.gps-dot.error { background:var(--red); }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-.gps-text { font-size:11px; font-weight:600; color:var(--text2); }
-.gps-coords-text { font-size:10px; color:var(--accent); font-family:'JetBrains Mono',monospace; }
-.gps-retry-btn { background:var(--surface); border:1px solid var(--border); color:var(--text2); padding:6px 12px; border-radius:5px; font-family:'Oswald',sans-serif; font-size:10px; font-weight:600; letter-spacing:1px; cursor:pointer; display:flex; align-items:center; gap:5px; }
-.gps-retry-btn svg { width:14px; height:14px; }
-
-/* Buttons */
-.submit-btn { display:flex; align-items:center; justify-content:center; gap:10px; width:calc(100% - 30px); margin:15px; padding:14px; background:var(--accent); color:var(--bg); border:none; border-radius:8px; font-family:'Oswald',sans-serif; font-size:14px; font-weight:700; letter-spacing:2px; text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
-.submit-btn:hover { background:var(--accent2); transform:translateY(-1px); box-shadow:0 4px 15px rgba(0,212,170,0.3); }
-.submit-btn:disabled { opacity:0.5; cursor:not-allowed; transform:none; box-shadow:none; }
-.submit-btn svg { width:18px; height:18px; }
-.submit-btn.danger { background:var(--red); }
-.secondary-btn { display:flex; align-items:center; justify-content:center; gap:10px; width:calc(100% - 30px); margin:0 15px 15px; padding:12px; background:transparent; color:var(--accent); border:2px solid var(--accent); border-radius:8px; font-family:'Oswald',sans-serif; font-size:13px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
-.secondary-btn:hover { background:var(--accent-glow); }
-.secondary-btn svg { width:16px; height:16px; }
-.sync-actions { display:flex; flex-direction:column; }
-
-/* Stock Grid */
-.stock-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:15px; }
-.stock-card { text-align:center; padding:15px; border-radius:8px; border:1px solid var(--border); }
-.stock-card.received { background:rgba(52,152,219,0.1); border-color:rgba(52,152,219,0.3); }
-.stock-card.distributed { background:rgba(0,212,170,0.08); border-color:rgba(0,212,170,0.3); }
-.stock-card.remaining { background:var(--yellow-bg); border-color:rgba(255,193,7,0.3); }
-.stock-num { font-size:28px; font-weight:700; font-family:'JetBrains Mono',monospace; }
-.stock-card.received .stock-num { color:var(--blue); }
-.stock-card.distributed .stock-num { color:var(--accent); }
-.stock-card.remaining .stock-num { color:var(--yellow); }
-.stock-label { font-size:9px; letter-spacing:2px; color:var(--text2); margin-top:5px; }
-.stock-history { max-height:200px; overflow-y:auto; }
-.stock-history-item { display:flex; justify-content:space-between; padding:10px 15px; border-bottom:1px solid var(--border); font-size:11px; }
-
-/* Sync */
-.sync-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; padding:15px; }
-.sync-stat-item { text-align:center; padding:12px; background:var(--bg); border-radius:8px; border:1px solid var(--border); }
-.sync-stat-item.success { border-color:rgba(0,212,170,0.3); }
-.sync-stat-num { font-size:24px; font-weight:700; color:var(--accent); font-family:'JetBrains Mono',monospace; display:block; }
-.sync-stat-label { font-size:9px; color:var(--text3); letter-spacing:1px; }
-.sync-log { max-height:250px; overflow-y:auto; }
-.sync-log-item { padding:10px 15px; border-bottom:1px solid var(--border); font-size:11px; display:flex; gap:8px; align-items:flex-start; }
-.sync-log-time { color:var(--text3); font-family:'JetBrains Mono',monospace; font-size:9px; white-space:nowrap; }
-.sync-log-msg { color:var(--text2); }
-
-/* Dist History */
-.dist-history { max-height:300px; overflow-y:auto; }
-.dist-history-item { display:flex; justify-content:space-between; align-items:center; padding:10px 15px; border-bottom:1px solid var(--border); }
-.dist-hh-name { font-size:12px; font-weight:600; color:var(--text); }
-.dist-voucher-code { font-size:10px; color:var(--accent); font-family:'JetBrains Mono',monospace; }
-.dist-time { font-size:9px; color:var(--text3); }
-.dist-badge { padding:2px 8px; border-radius:10px; font-size:9px; font-weight:700; }
-.dist-badge.pass { background:rgba(0,212,170,0.15); color:var(--accent); }
-.dist-badge.fail { background:var(--red-bg); color:var(--red); }
-
-/* Empty State */
-.empty-state { text-align:center; padding:30px; color:var(--text3); font-size:12px; }
-
-/* Notification */
-.notification { position:fixed; top:20px; right:20px; background:var(--bg2); border:2px solid var(--accent); padding:15px 20px; border-radius:8px; box-shadow:0 8px 30px rgba(0,0,0,0.4); display:none; z-index:2000; max-width:350px; font-size:13px; font-weight:600; color:var(--text); }
-.notification.show { display:block; animation:notifIn 0.3s ease-out; }
-@keyframes notifIn { from{transform:translateX(100px);opacity:0} to{transform:translateX(0);opacity:1} }
-.notification.success { border-color:var(--accent); }
-.notification.error { border-color:var(--red); }
-.notification.info { border-color:var(--blue); }
-.notification.warning { border-color:var(--yellow); }
-
-/* Responsive */
-@media(max-width:600px) {
-    .tab-btn span:not(.tab-count) { font-size:8px; }
-    .field-row.two-col { grid-template-columns:1fr; }
-    .geo-bar { flex-direction:column; gap:4px; }
-    .stock-grid { grid-template-columns:1fr; }
-    .sync-stats { grid-template-columns:1fr; }
-    .scanner-input-row { flex-direction:column; }
-}
-</style>
-
-<!-- ==================== SCRIPT ==================== -->
-<script>
-// ============================================
-// CONFIG
-// ============================================
-const CONFIG = {
-    SCRIPT_URL: 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec',
-    SHEET_URL: 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit',
-    CSV_FILE: 'cascading_data.csv',
-    DHIS2_URL: ''
-};
-
-// ============================================
-// USER DATABASE (simulated - replace with real auth)
-// ============================================
-const USERS_DB = {
-    'user001': { password: 'pass001', name: 'Mohamed Kanu', district: 'Bo', chiefdom: 'Kakua', community: 'Bo Town', dp: 'Bo Town Primary DP' },
-    'user002': { password: 'pass002', name: 'Fatmata Sesay', district: 'Kenema', chiefdom: 'Nongowa', community: 'Kenema City', dp: 'Kenema City Health Center DP' },
-    'user003': { password: 'pass003', name: 'Ibrahim Kamara', district: 'Bombali', chiefdom: 'Bombali Shebora', community: 'Makeni', dp: 'Makeni Central DP' },
-    'admin': { password: 'admin123', name: 'Admin User', district: '', chiefdom: '', community: '', dp: '' }
-};
-
-// Distribution points (populate from CSV or config)
-const DIST_POINTS = [
-    { id: 'dp001', name: 'Bo Town Primary DP', district: 'Bo', chiefdom: 'Kakua', community: 'Bo Town' },
-    { id: 'dp002', name: 'Kenema City Health Center DP', district: 'Kenema', chiefdom: 'Nongowa', community: 'Kenema City' },
-    { id: 'dp003', name: 'Makeni Central DP', district: 'Bombali', chiefdom: 'Bombali Shebora', community: 'Makeni' },
-    { id: 'dp004', name: 'Freetown West DP', district: 'Western Area Urban', chiefdom: 'West I', community: 'Freetown' },
-    { id: 'dp005', name: 'Port Loko Main DP', district: 'Port Loko', chiefdom: 'Maforki', community: 'Port Loko Town' }
-];
-
-// ============================================
-// STATE
-// ============================================
-const appState = {
-    isLoggedIn: false,
-    currentUser: null,
-    currentDP: null,
-    geoInfo: {},
-    registrations: [],
-    distributions: [],
-    itnStock: [],
-    syncLog: [],
-    isOnline: navigator.onLine
-};
-
-// ============================================
-// INIT
-// ============================================
-function initApp() {
-    loadState();
-    populateDistPoints();
-    setupOnlineListeners();
-    
-    // Check if user was logged in
-    if (appState.isLoggedIn && appState.currentUser) {
-        showAppScreen();
-    }
-}
-
-function loadState() {
-    try {
-        const saved = localStorage.getItem('itn_mass_state');
-        if (saved) {
-            const data = JSON.parse(saved);
-            Object.assign(appState, data);
-        }
-    } catch(e) { console.warn('State load failed:', e); }
-}
-
-function saveState() {
-    try {
-        localStorage.setItem('itn_mass_state', JSON.stringify(appState));
-    } catch(e) { console.warn('State save failed:', e); }
-}
-
-function populateDistPoints() {
-    const sel = document.getElementById('loginDistPoint');
-    DIST_POINTS.forEach(dp => {
-        const opt = document.createElement('option');
-        opt.value = dp.id;
-        opt.textContent = `${dp.name} (${dp.district})`;
-        sel.appendChild(opt);
-    });
-}
-
-function setupOnlineListeners() {
-    window.addEventListener('online', () => {
-        appState.isOnline = true;
-        updateOnlineStatus();
-        showNotification('Back online!', 'success');
-    });
-    window.addEventListener('offline', () => {
-        appState.isOnline = false;
-        updateOnlineStatus();
-        showNotification('You are offline. Data saved locally.', 'warning');
-    });
-}
-
-function updateOnlineStatus() {
-    const dot = document.getElementById('appStatusDot');
-    if (dot) {
-        dot.classList.toggle('offline', !appState.isOnline);
-    }
-}
-
-// ============================================
-// LOGIN / LOGOUT
-// ============================================
-function handleLogin() {
-    const userId = document.getElementById('loginUserId').value.trim();
-    const password = document.getElementById('loginPassword').value;
-    const dpId = document.getElementById('loginDistPoint').value;
-    const errorEl = document.getElementById('loginError');
-    
-    errorEl.textContent = '';
-
-    if (!userId || !password) {
-        errorEl.textContent = 'Please enter User ID and Password';
-        return;
-    }
-    if (!dpId) {
-        errorEl.textContent = 'Please select a Distribution Point';
-        return;
-    }
-
-    const user = USERS_DB[userId];
-    if (!user || user.password !== password) {
-        errorEl.textContent = 'Invalid User ID or Password';
-        return;
-    }
-
-    const dp = DIST_POINTS.find(d => d.id === dpId);
-    
-    appState.isLoggedIn = true;
-    appState.currentUser = { id: userId, ...user };
-    appState.currentDP = dp;
-    appState.geoInfo = {
-        district: dp.district,
-        chiefdom: dp.chiefdom,
-        community: dp.community,
-        distributionPoint: dp.name
-    };
-    
-    saveState();
-    showAppScreen();
-    showNotification(`Welcome, ${user.name}!`, 'success');
-}
-
-function handleLogout() {
-    if (!confirm('Are you sure you want to log out?')) return;
-    
-    appState.isLoggedIn = false;
-    appState.currentUser = null;
-    appState.currentDP = null;
-    saveState();
-    
-    document.getElementById('appScreen').style.display = 'none';
-    document.getElementById('loginScreen').style.display = 'block';
-    
-    // Clear login form
-    document.getElementById('loginUserId').value = '';
-    document.getElementById('loginPassword').value = '';
-    document.getElementById('loginError').textContent = '';
-}
-
-function showAppScreen() {
-    document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('appScreen').style.display = 'block';
-    
-    // Populate user info
-    document.getElementById('userBadge').textContent = appState.currentUser.id.toUpperCase().slice(0,4);
-    document.getElementById('dpBadge').textContent = 'DP';
-    
-    // Populate geo info
-    document.getElementById('geoDistrict').textContent = appState.geoInfo.district || '—';
-    document.getElementById('geoChiefdom').textContent = appState.geoInfo.chiefdom || '—';
-    document.getElementById('geoCommunity').textContent = appState.geoInfo.community || '—';
-    document.getElementById('geoDP').textContent = appState.geoInfo.distributionPoint || '—';
-    
-    updateOnlineStatus();
-    updateAllCounts();
-    updateStockSummary();
-    updateDistHistory();
-    updateSyncStats();
-    
-    // Set default date
-    const today = new Date().toISOString().split('T')[0];
-    const dateField = document.getElementById('itn_recv_date');
-    if (dateField && !dateField.value) dateField.value = today;
-    
-    // Generate household ID
-    generateHHId();
-    
-    // Capture GPS
-    captureRegGPS();
-}
-
-// ============================================
-// TAB SWITCHING
-// ============================================
-function switchTab(tabId) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-    
-    document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
-    document.getElementById(`tab-${tabId}`).classList.add('active');
-    
-    if (tabId === 'distribution') {
-        setTimeout(() => document.getElementById('dist_voucher_scan')?.focus(), 100);
-    }
-}
-
-// ============================================
-// HOUSEHOLD REGISTRATION
-// ============================================
-function generateHHId() {
-    const dp = appState.currentDP?.id || 'XX';
-    const ts = Date.now().toString(36).toUpperCase().slice(-6);
-    const rand = Math.random().toString(36).toUpperCase().slice(2,5);
-    document.getElementById('reg_hh_id').value = `HH-${dp.toUpperCase()}-${ts}-${rand}`;
-}
-
-function onTotalPeopleChange() {
-    const total = parseInt(document.getElementById('reg_total_people').value) || 0;
-    updateVoucherAllocation(total);
-    checkGenderSum();
-}
-
-function onGenderChange() {
-    checkGenderSum();
-}
-
-function onVulnerableChange() {
-    const total = parseInt(document.getElementById('reg_total_people').value) || 0;
-    const females = parseInt(document.getElementById('reg_females').value) || 0;
-    const under5 = parseInt(document.getElementById('reg_under5').value) || 0;
-    const pregnant = parseInt(document.getElementById('reg_pregnant').value) || 0;
-    
-    if (under5 > total) {
-        document.getElementById('err_reg_under5').textContent = 'Cannot exceed total people';
-    } else {
-        document.getElementById('err_reg_under5').textContent = '';
-    }
-    
-    if (pregnant > females) {
-        document.getElementById('err_reg_pregnant').textContent = 'Cannot exceed number of females';
-    } else {
-        document.getElementById('err_reg_pregnant').textContent = '';
-    }
-}
-
-function checkGenderSum() {
-    const total = parseInt(document.getElementById('reg_total_people').value) || 0;
-    const males = parseInt(document.getElementById('reg_males').value) || 0;
-    const females = parseInt(document.getElementById('reg_females').value) || 0;
-    
-    const checkEl = document.getElementById('genderCheck');
-    const iconEl = document.getElementById('genderCheckIcon');
-    const textEl = document.getElementById('genderCheckText');
-    
-    if (total > 0 && (males > 0 || females > 0)) {
-        checkEl.style.display = 'flex';
-        if (males + females === total) {
-            checkEl.className = 'gender-check match';
-            iconEl.textContent = '✓';
-            textEl.textContent = `Males (${males}) + Females (${females}) = Total (${total}) ✓`;
-        } else {
-            checkEl.className = 'gender-check mismatch';
-            iconEl.textContent = '⚠';
-            textEl.textContent = `Males (${males}) + Females (${females}) = ${males+females} ≠ Total (${total})`;
-        }
-    } else {
-        checkEl.style.display = 'none';
-    }
-}
-
-function updateVoucherAllocation(totalPeople) {
-    const summaryBlock = document.getElementById('voucherSummary');
-    const scannerBlock = document.getElementById('scannerBlock');
-    
-    if (totalPeople <= 0) {
-        summaryBlock.style.display = 'none';
-        scannerBlock.style.display = 'none';
-        return;
-    }
-    
-    // Calculate vouchers: 1 ITN per 2 people, minimum 1
-    let voucherCount;
-    if (totalPeople <= 3) voucherCount = 1;
-    else if (totalPeople <= 5) voucherCount = 2;
-    else voucherCount = 3;
-    
-    summaryBlock.style.display = 'block';
-    scannerBlock.style.display = 'block';
-    
-    document.getElementById('voucherCount').textContent = voucherCount;
-    
-    let formula;
-    if (totalPeople <= 3) formula = `${totalPeople} people → 1 voucher`;
-    else if (totalPeople <= 5) formula = `${totalPeople} people → 2 vouchers`;
-    else formula = `${totalPeople} people (6+) → 3 vouchers`;
-    document.getElementById('voucherFormula').textContent = formula;
-    
-    // Build scanner inputs
-    buildScanners(voucherCount);
-}
-
-function buildScanners(count) {
-    const grid = document.getElementById('scannerGrid');
-    grid.innerHTML = '';
-    
-    for (let i = 1; i <= count; i++) {
-        const row = document.createElement('div');
-        row.className = 'scanner-row';
-        row.innerHTML = `
-            <span class="scanner-label">VOUCHER ${i}</span>
-            <input type="text" class="scanner-input" id="voucher_scan_${i}" placeholder="Scan barcode..." onchange="onVoucherScanned(${i})">
-            <div class="scanner-status pending" id="voucher_status_${i}">○</div>
-        `;
-        grid.appendChild(row);
-    }
-    
-    // Focus first scanner
-    setTimeout(() => document.getElementById('voucher_scan_1')?.focus(), 100);
-}
-
-function onVoucherScanned(index) {
-    const input = document.getElementById(`voucher_scan_${index}`);
-    const status = document.getElementById(`voucher_status_${index}`);
-    const value = input.value.trim();
-    
-    if (value) {
-        // Check for duplicate in current form
-        let isDuplicate = false;
-        const totalScanners = document.querySelectorAll('.scanner-input').length;
-        for (let i = 1; i <= totalScanners; i++) {
-            if (i !== index) {
-                const otherInput = document.getElementById(`voucher_scan_${i}`);
-                if (otherInput && otherInput.value.trim() === value) {
-                    isDuplicate = true;
-                    break;
-                }
-            }
-        }
-        
-        if (isDuplicate) {
-            status.className = 'scanner-status fail';
-            status.textContent = '✗';
-            input.classList.add('error');
-            showNotification('Duplicate voucher code detected!', 'error');
-        } else {
-            status.className = 'scanner-status ok';
-            status.textContent = '✓';
-            input.classList.add('scanned');
-            input.classList.remove('error');
-            
-            // Auto-focus next scanner
-            const nextInput = document.getElementById(`voucher_scan_${index + 1}`);
-            if (nextInput) nextInput.focus();
-        }
-    }
-}
-
-function captureRegGPS() {
-    const dot = document.getElementById('regGpsDot');
-    const text = document.getElementById('regGpsText');
-    const coords = document.getElementById('regGpsCoords');
-    
-    if (!navigator.geolocation) {
-        dot.className = 'gps-dot error';
-        text.textContent = 'GPS not supported';
-        return;
-    }
-    
-    dot.className = 'gps-dot loading';
-    text.textContent = 'Capturing GPS...';
-    coords.textContent = '';
-    
-    navigator.geolocation.getCurrentPosition(
-        pos => {
-            const { latitude, longitude, accuracy } = pos.coords;
-            document.getElementById('reg_gps_lat').value = latitude.toFixed(6);
-            document.getElementById('reg_gps_lng').value = longitude.toFixed(6);
-            document.getElementById('reg_gps_acc').value = Math.round(accuracy);
-            dot.className = 'gps-dot success';
-            text.textContent = 'GPS captured!';
-            coords.textContent = `${latitude.toFixed(5)}, ${longitude.toFixed(5)} (±${Math.round(accuracy)}m)`;
-        },
-        err => {
-            dot.className = 'gps-dot error';
-            text.textContent = 'GPS failed (optional)';
-        },
-        { enableHighAccuracy: true, timeout: 15000 }
-    );
-}
-
-function submitRegistration() {
-    // Validate
-    const name = document.getElementById('reg_hh_name').value.trim();
-    const phone = document.getElementById('reg_hh_phone').value.trim();
-    const total = parseInt(document.getElementById('reg_total_people').value) || 0;
-    const males = parseInt(document.getElementById('reg_males').value) || 0;
-    const females = parseInt(document.getElementById('reg_females').value) || 0;
-    const under5 = parseInt(document.getElementById('reg_under5').value) || 0;
-    const pregnant = parseInt(document.getElementById('reg_pregnant').value) || 0;
-    const hhId = document.getElementById('reg_hh_id').value;
-    
-    let errors = [];
-    if (!name) errors.push('Household head name is required');
-    if (!phone || phone.length !== 9) errors.push('Valid 9-digit phone number required');
-    if (total < 1) errors.push('Total number of people must be at least 1');
-    if (males + females !== total) errors.push('Males + Females must equal total people');
-    if (under5 > total) errors.push('Children under 5 cannot exceed total');
-    if (pregnant > females) errors.push('Pregnant women cannot exceed females');
-    
-    // Check voucher scans
-    const scannerInputs = document.querySelectorAll('.scanner-input');
-    const vouchers = [];
-    scannerInputs.forEach((input, idx) => {
-        const val = input.value.trim();
-        if (!val) errors.push(`Voucher ${idx+1} barcode is required`);
-        else vouchers.push(val);
-    });
-    
-    // Check for duplicate vouchers
-    const uniqueVouchers = new Set(vouchers);
-    if (uniqueVouchers.size !== vouchers.length) {
-        errors.push('Duplicate voucher codes detected');
-    }
-    
-    if (errors.length > 0) {
-        showNotification(errors[0], 'error');
-        return;
-    }
-    
-    // Build registration record
-    const record = {
-        id: hhId,
-        timestamp: new Date().toISOString(),
-        distributionPoint: appState.currentDP?.name || '',
-        dpId: appState.currentDP?.id || '',
-        district: appState.geoInfo.district,
-        chiefdom: appState.geoInfo.chiefdom,
-        community: appState.geoInfo.community,
-        registeredBy: appState.currentUser?.name || '',
-        userId: appState.currentUser?.id || '',
-        hhName: name,
-        hhPhone: phone,
-        totalPeople: total,
-        males: males,
-        females: females,
-        under5: under5,
-        pregnant: pregnant,
-        vouchers: vouchers,
-        voucherCount: vouchers.length,
-        gpsLat: document.getElementById('reg_gps_lat').value,
-        gpsLng: document.getElementById('reg_gps_lng').value,
-        gpsAcc: document.getElementById('reg_gps_acc').value,
-        status: 'registered',
-        distributed: false
-    };
-    
-    appState.registrations.push(record);
-    saveState();
-    
-    showNotification(`Household "${name}" registered with ${vouchers.length} voucher(s)!`, 'success');
-    
-    // Reset form
-    resetRegistrationForm();
-    updateAllCounts();
-}
-
-function resetRegistrationForm() {
-    document.getElementById('reg_hh_name').value = '';
-    document.getElementById('reg_hh_phone').value = '';
-    document.getElementById('reg_total_people').value = '';
-    document.getElementById('reg_males').value = '';
-    document.getElementById('reg_females').value = '';
-    document.getElementById('reg_under5').value = '';
-    document.getElementById('reg_pregnant').value = '';
-    document.getElementById('voucherSummary').style.display = 'none';
-    document.getElementById('scannerBlock').style.display = 'none';
-    document.getElementById('genderCheck').style.display = 'none';
-    
-    // Clear errors
-    document.querySelectorAll('.field-err').forEach(el => el.textContent = '');
-    
-    generateHHId();
-    captureRegGPS();
-}
-
-// ============================================
-// DISTRIBUTION - VOUCHER VERIFICATION
-// ============================================
-function verifyVoucher() {
-    const voucherCode = document.getElementById('dist_voucher_scan').value.trim();
-    const resultBlock = document.getElementById('verifyResultBlock');
-    const resultDiv = document.getElementById('verifyResult');
-    
-    if (!voucherCode) {
-        showNotification('Please scan or enter a voucher code', 'error');
-        return;
-    }
-    
-    resultBlock.style.display = 'block';
-    
-    // Check 1: Was this voucher registered?
-    let registration = null;
-    for (const reg of appState.registrations) {
-        if (reg.vouchers && reg.vouchers.includes(voucherCode)) {
-            registration = reg;
-            break;
-        }
-    }
-    
-    const issues = [];
-    const tips = [];
-    
-    if (!registration) {
-        issues.push('This voucher was NOT found in the registration database');
-        tips.push('Check if the voucher code was scanned correctly');
-        tips.push('The household may need to be registered first at the registration desk');
-        tips.push('Verify the voucher belongs to this distribution campaign');
-    }
-    
-    if (registration) {
-        // Check 2: Already distributed/redeemed?
-        const existingDist = appState.distributions.find(d => d.voucherCode === voucherCode);
-        if (existingDist) {
-            issues.push(`This voucher was ALREADY REDEEMED on ${new Date(existingDist.timestamp).toLocaleString()}`);
-            tips.push('This is a duplicate redemption attempt');
-            tips.push(`Previously distributed to: ${existingDist.hhName}`);
-            tips.push('Direct the person to the supervisor desk for resolution');
-        }
-        
-        // Check 3: Distribution point match?
-        if (registration.dpId !== appState.currentDP?.id) {
-            issues.push(`This voucher was registered at "${registration.distributionPoint}", NOT this distribution point`);
-            tips.push('Direct the person to their registered distribution point');
-            tips.push(`Registered at: ${registration.distributionPoint}`);
-            tips.push('If this is an error, contact the registration desk to re-assign');
-        }
-    }
-    
-    if (issues.length === 0 && registration) {
-        // ALL PASS
-        resultDiv.innerHTML = `
-            <div class="verify-pass">
-                <div class="verify-title">
-                    <span style="font-size:24px;">✓</span> VOUCHER VERIFIED — PASS
-                </div>
-                <div class="verify-detail">
-                    <strong>Household Head:</strong> ${registration.hhName}<br>
-                    <strong>Phone:</strong> ${registration.hhPhone}<br>
-                    <strong>Household Size:</strong> ${registration.totalPeople} people (${registration.males}M / ${registration.females}F)<br>
-                    <strong>Children Under 5:</strong> ${registration.under5}<br>
-                    <strong>Pregnant Women:</strong> ${registration.pregnant}<br>
-                    <strong>Voucher:</strong> ${voucherCode}<br>
-                    <strong>Distribution Point:</strong> ${registration.distributionPoint}<br>
-                    <strong>Registered:</strong> ${new Date(registration.timestamp).toLocaleString()}
-                </div>
-                <div class="verify-action">
-                    <button type="button" class="submit-btn" onclick="confirmDistribution('${voucherCode}')">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                        GIVE ITN & CONFIRM DISTRIBUTION
-                    </button>
-                </div>
-            </div>
-        `;
-    } else {
-        // FAIL
-        resultDiv.innerHTML = `
-            <div class="verify-fail">
-                <div class="verify-title">
-                    <span style="font-size:24px;">✗</span> VOUCHER VERIFICATION FAILED
-                </div>
-                <div class="verify-issues">
-                    ${issues.map(i => `<div class="verify-issue"><span>⚠</span><span>${i}</span></div>`).join('')}
-                </div>
-                <div class="verify-tips">
-                    <div class="verify-tips-title">
-                        <span>💡</span> RECOMMENDED ACTIONS
-                    </div>
-                    ${tips.map(t => `<div class="verify-tip">${t}</div>`).join('')}
-                </div>
-            </div>
-        `;
-    }
-    
-    // Clear scanner
-    document.getElementById('dist_voucher_scan').value = '';
-    document.getElementById('dist_voucher_scan').focus();
-}
-
-function confirmDistribution(voucherCode) {
-    // Find registration
-    let registration = null;
-    for (const reg of appState.registrations) {
-        if (reg.vouchers && reg.vouchers.includes(voucherCode)) {
-            registration = reg;
-            break;
-        }
-    }
-    
-    if (!registration) return;
-    
-    // Create distribution record
-    const distRecord = {
-        id: 'DIST-' + Date.now().toString(36).toUpperCase(),
-        timestamp: new Date().toISOString(),
-        voucherCode: voucherCode,
-        registrationId: registration.id,
-        hhName: registration.hhName,
-        hhPhone: registration.hhPhone,
-        totalPeople: registration.totalPeople,
-        distributionPoint: appState.currentDP?.name || '',
-        dpId: appState.currentDP?.id || '',
-        distributedBy: appState.currentUser?.name || '',
-        userId: appState.currentUser?.id || '',
-        district: appState.geoInfo.district,
-        chiefdom: appState.geoInfo.chiefdom,
-        community: appState.geoInfo.community,
-        status: 'distributed'
-    };
-    
-    appState.distributions.push(distRecord);
-    
-    // Mark voucher in registration as distributed
-    registration.distributed = true;
-    
-    saveState();
-    
-    // Hide result
-    document.getElementById('verifyResultBlock').style.display = 'none';
-    
-    showNotification(`ITN distributed to ${registration.hhName} — Voucher ${voucherCode}`, 'success');
-    
-    updateAllCounts();
-    updateDistHistory();
-    updateStockSummary();
-}
-
-function updateDistHistory() {
-    const container = document.getElementById('distHistory');
-    const recent = [...appState.distributions].reverse().slice(0, 20);
-    
-    if (recent.length === 0) {
-        container.innerHTML = '<div class="empty-state">No distributions yet today</div>';
-        return;
-    }
-    
-    container.innerHTML = recent.map(d => `
-        <div class="dist-history-item">
-            <div>
-                <div class="dist-hh-name">${d.hhName}</div>
-                <div class="dist-voucher-code">${d.voucherCode}</div>
-            </div>
-            <div style="text-align:right;">
-                <div class="dist-badge pass">DISTRIBUTED</div>
-                <div class="dist-time">${new Date(d.timestamp).toLocaleTimeString()}</div>
-            </div>
-        </div>
-    `).join('');
-}
-
-// ============================================
-// ITN STOCK RECEIVED
-// ============================================
-function submitITNReceived() {
-    const date = document.getElementById('itn_recv_date').value;
-    const batch = document.getElementById('itn_batch').value.trim();
-    const type = document.getElementById('itn_recv_type').value;
-    const qty = parseInt(document.getElementById('itn_recv_qty').value) || 0;
-    const from = document.getElementById('itn_recv_from').value.trim();
-    const notes = document.getElementById('itn_recv_notes').value.trim();
-    
-    if (!date || !type || qty < 1) {
-        showNotification('Please fill in date, ITN type, and quantity', 'error');
-        return;
-    }
-    
-    const record = {
-        id: 'STK-' + Date.now().toString(36).toUpperCase(),
-        timestamp: new Date().toISOString(),
-        date: date,
-        batch: batch,
-        type: type,
-        quantity: qty,
-        from: from,
-        notes: notes,
-        distributionPoint: appState.currentDP?.name || '',
-        recordedBy: appState.currentUser?.name || ''
-    };
-    
-    appState.itnStock.push(record);
-    saveState();
-    
-    showNotification(`${qty} ${type} ITNs recorded as received!`, 'success');
-    
-    // Reset form
-    document.getElementById('itn_batch').value = '';
-    document.getElementById('itn_recv_qty').value = '';
-    document.getElementById('itn_recv_from').value = '';
-    document.getElementById('itn_recv_notes').value = '';
-    
-    updateStockSummary();
-    updateSyncStats();
-}
-
-function updateStockSummary() {
-    const totalReceived = appState.itnStock.reduce((sum, s) => sum + s.quantity, 0);
-    const totalDistributed = appState.distributions.length; // 1 ITN per voucher
-    const remaining = totalReceived - totalDistributed;
-    
-    document.getElementById('stockReceived').textContent = totalReceived.toLocaleString();
-    document.getElementById('stockDistributed').textContent = totalDistributed.toLocaleString();
-    document.getElementById('stockRemaining').textContent = remaining.toLocaleString();
-    
-    // Stock history
-    const container = document.getElementById('stockHistory');
-    if (appState.itnStock.length === 0) {
-        container.innerHTML = '<div class="empty-state">No stock records yet</div>';
-        return;
-    }
-    
-    container.innerHTML = [...appState.itnStock].reverse().map(s => `
-        <div class="stock-history-item">
-            <div>
-                <span style="color:var(--text);font-weight:600;">${s.quantity} ${s.type}</span>
-                <span style="color:var(--text3);margin-left:8px;">${s.batch || 'No batch'}</span>
-            </div>
-            <div style="color:var(--text3);font-size:10px;">${s.date}</div>
-        </div>
-    `).join('');
-}
-
-// ============================================
-// DHIS2 SYNC
-// ============================================
-function updateSyncStats() {
-    // Count records not yet synced
-    const pendingReg = appState.registrations.filter(r => !r.synced).length;
-    const pendingDist = appState.distributions.filter(d => !d.synced).length;
-    const pendingStock = appState.itnStock.filter(s => !s.synced).length;
-    const totalSynced = appState.registrations.filter(r => r.synced).length + 
-                        appState.distributions.filter(d => d.synced).length + 
-                        appState.itnStock.filter(s => s.synced).length;
-    
-    document.getElementById('syncPendingReg').textContent = pendingReg;
-    document.getElementById('syncPendingDist').textContent = pendingDist;
-    document.getElementById('syncPendingStock').textContent = pendingStock;
-    document.getElementById('syncTotal').textContent = totalSynced;
-}
-
-async function syncToDHIS2() {
-    const dhis2Url = document.getElementById('dhis2Url').value.trim();
-    
-    if (!appState.isOnline) {
-        showNotification('Cannot sync while offline', 'error');
-        return;
-    }
-    
-    showNotification('Syncing data...', 'info');
-    addSyncLog('Starting sync process...');
-    
-    // Sync registrations
-    const pendingRegs = appState.registrations.filter(r => !r.synced);
-    for (const reg of pendingRegs) {
-        try {
-            if (CONFIG.SCRIPT_URL && CONFIG.SCRIPT_URL !== 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec') {
-                await fetch(CONFIG.SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ type: 'registration', ...reg })
-                });
-            }
-            reg.synced = true;
-            addSyncLog(`Registration ${reg.id} synced ✓`);
-        } catch(e) {
-            addSyncLog(`Registration ${reg.id} failed: ${e.message}`);
-        }
-    }
-    
-    // Sync distributions
-    const pendingDists = appState.distributions.filter(d => !d.synced);
-    for (const dist of pendingDists) {
-        try {
-            if (CONFIG.SCRIPT_URL && CONFIG.SCRIPT_URL !== 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec') {
-                await fetch(CONFIG.SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ type: 'distribution', ...dist })
-                });
-            }
-            dist.synced = true;
-            addSyncLog(`Distribution ${dist.id} synced ✓`);
-        } catch(e) {
-            addSyncLog(`Distribution ${dist.id} failed: ${e.message}`);
-        }
-    }
-    
-    // Sync stock
-    const pendingStock = appState.itnStock.filter(s => !s.synced);
-    for (const stk of pendingStock) {
-        try {
-            if (CONFIG.SCRIPT_URL && CONFIG.SCRIPT_URL !== 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec') {
-                await fetch(CONFIG.SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ type: 'stock', ...stk })
-                });
-            }
-            stk.synced = true;
-            addSyncLog(`Stock ${stk.id} synced ✓`);
-        } catch(e) {
-            addSyncLog(`Stock ${stk.id} failed: ${e.message}`);
-        }
-    }
-    
-    saveState();
-    updateSyncStats();
-    
-    const totalSynced = pendingRegs.length + pendingDists.length + pendingStock.length;
-    addSyncLog(`Sync complete: ${totalSynced} records processed`);
-    showNotification(`Sync complete! ${totalSynced} records processed.`, 'success');
-}
-
-function addSyncLog(msg) {
-    const entry = {
-        time: new Date().toLocaleTimeString(),
-        message: msg
-    };
-    appState.syncLog.unshift(entry);
-    if (appState.syncLog.length > 50) appState.syncLog = appState.syncLog.slice(0, 50);
-    
-    const container = document.getElementById('syncLog');
-    container.innerHTML = appState.syncLog.map(l => `
-        <div class="sync-log-item">
-            <span class="sync-log-time">${l.time}</span>
-            <span class="sync-log-msg">${l.message}</span>
-        </div>
-    `).join('');
-}
-
-function exportData() {
-    const allData = [];
-    
-    // Export registrations
-    appState.registrations.forEach(r => {
-        allData.push({
-            type: 'Registration',
-            id: r.id,
-            timestamp: r.timestamp,
-            district: r.district,
-            chiefdom: r.chiefdom,
-            community: r.community,
-            distributionPoint: r.distributionPoint,
-            hhName: r.hhName,
-            hhPhone: r.hhPhone,
-            totalPeople: r.totalPeople,
-            males: r.males,
-            females: r.females,
-            under5: r.under5,
-            pregnant: r.pregnant,
-            vouchers: (r.vouchers || []).join('; '),
-            voucherCount: r.voucherCount,
-            gpsLat: r.gpsLat,
-            gpsLng: r.gpsLng,
-            registeredBy: r.registeredBy,
-            distributed: r.distributed ? 'Yes' : 'No',
-            synced: r.synced ? 'Yes' : 'No'
-        });
-    });
-    
-    // Export distributions
-    appState.distributions.forEach(d => {
-        allData.push({
-            type: 'Distribution',
-            id: d.id,
-            timestamp: d.timestamp,
-            district: d.district,
-            chiefdom: d.chiefdom,
-            community: d.community,
-            distributionPoint: d.distributionPoint,
-            hhName: d.hhName,
-            hhPhone: d.hhPhone,
-            totalPeople: d.totalPeople,
-            voucherCode: d.voucherCode,
-            registrationId: d.registrationId,
-            distributedBy: d.distributedBy,
-            synced: d.synced ? 'Yes' : 'No'
-        });
-    });
-    
-    if (allData.length === 0) {
-        showNotification('No data to export', 'info');
-        return;
-    }
-    
-    const keys = new Set();
-    allData.forEach(item => Object.keys(item).forEach(k => keys.add(k)));
-    const headers = Array.from(keys);
-    
-    let csv = headers.join(',') + '\n';
-    allData.forEach(item => {
-        csv += headers.map(h => {
-            let val = item[h] || '';
-            if (typeof val === 'string' && (val.includes(',') || val.includes('"') || val.includes('\n'))) {
-                val = '"' + val.replace(/"/g, '""') + '"';
-            }
-            return val;
-        }).join(',') + '\n';
-    });
-    
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `itn_mass_campaign_${new Date().toISOString().split('T')[0]}.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
-    showNotification('Data exported!', 'success');
-}
-
-// ============================================
-// UTILITIES
-// ============================================
-function updateAllCounts() {
-    document.getElementById('regCount').textContent = appState.registrations.length;
-    document.getElementById('distCount').textContent = appState.distributions.length;
-}
-
-function showNotification(msg, type) {
-    const notif = document.getElementById('notification');
-    const text = document.getElementById('notificationText');
-    notif.className = 'notification ' + type + ' show';
-    text.textContent = msg;
-    setTimeout(() => notif.classList.remove('show'), 4000);
-}
-
-// Phone validation on input
-document.addEventListener('input', function(e) {
-    if (e.target.type === 'tel') {
-        e.target.value = e.target.value.replace(/\D/g, '').slice(0, 9);
-    }
-});
-
-// Enter key on distribution scanner triggers verify
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && e.target.id === 'dist_voucher_scan') {
-        e.preventDefault();
-        verifyVoucher();
-    }
-});
-
-// ============================================
-// INITIALIZE
-// ============================================
-initApp();
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
