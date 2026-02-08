@@ -2,7 +2,7 @@ const CONFIG={SCRIPT_URL:'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
 let USERS_DB={};
 const ROLE_LABELS={dhmt:'DHMT Distribution',phu:'PHU Distribution',field_agent:'Field Agent',supervisor:'Supervisor',admin:'Administrator'};
 
-let cascadingData=[],csvLoaded=false,usersLoaded=false,lastReceipt=null,progressChart=null,hourlyChart=null;
+let cascadingData=[],csvLoaded=false,usersLoaded=false,progressChart=null,hourlyChart=null;
 const state={isLoggedIn:false,currentUser:null,currentDP:null,geoInfo:{},registrations:[],distributions:[],itnStock:[],dhmtRecords:[],phuRecords:[],syncLog:[],isOnline:navigator.onLine};
 
 // INIT
@@ -365,52 +365,14 @@ function submitRegistration(){
         vouchers:vouchers,voucherCount:vouchers.length,gpsLat:document.getElementById('reg_gps_lat').value,gpsLng:document.getElementById('reg_gps_lng').value,gpsAcc:document.getElementById('reg_gps_acc').value,
         status:'registered',distributed:false,synced:false};
     state.registrations.push(rec);saveToStorage();showNotification('Registered! '+vouchers.length+' voucher(s)','success');
-    sendToSheet('registration',rec);updateAllCounts();lastReceipt=rec;buildReceipt(rec);
-    document.getElementById('receiptSection').style.display='block';document.getElementById('receiptSection').scrollIntoView({behavior:'smooth'});
-}
-
-// RECEIPT WITH QR
-function buildReceipt(rec){var c=document.getElementById('voucherReceipt');
-    var ds=new Date(rec.timestamp).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
-    var ts=new Date(rec.timestamp).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
-    var vc='';rec.vouchers.forEach(function(v,i){
-        vc+='<div class="receipt-voucher-item"><span class="receipt-voucher-label">VOUCHER '+(i+1)+'</span><span class="receipt-voucher-code">'+v+'</span></div>';
-        vc+='<div class="receipt-qr" id="qr_placeholder_'+i+'"></div>';
-    });
-    c.innerHTML='<div class="receipt-header"><h2>ITN MASS CAMPAIGN</h2><p>ITN Distribution — Sierra Leone</p></div><div class="receipt-divider"></div><div class="receipt-body">'+
-        '<div class="receipt-hh-name">'+rec.hhName+'</div><div class="receipt-hh-id">'+rec.id+'</div>'+
-        '<div class="receipt-info-grid"><div class="receipt-info-item"><div class="receipt-info-label">Phone</div><div class="receipt-info-value">'+rec.hhPhone+'</div></div>'+
-        '<div class="receipt-info-item"><div class="receipt-info-label">HH Size</div><div class="receipt-info-value">'+rec.totalPeople+' ('+rec.males+'M/'+rec.females+'F)</div></div>'+
-        '<div class="receipt-info-item"><div class="receipt-info-label">Under 5</div><div class="receipt-info-value">'+rec.under5+'</div></div>'+
-        '<div class="receipt-info-item"><div class="receipt-info-label">Pregnant</div><div class="receipt-info-value">'+rec.pregnant+'</div></div>'+
-        '<div class="receipt-info-item"><div class="receipt-info-label">District</div><div class="receipt-info-value">'+rec.district+'</div></div>'+
-        '<div class="receipt-info-item"><div class="receipt-info-label">PHU</div><div class="receipt-info-value">'+rec.phuName+'</div></div></div>'+
-        '<div class="receipt-vouchers-title">'+rec.voucherCount+' VOUCHER(S) — '+rec.voucherCount+' ITN(S)</div>'+vc+
-        '<div class="receipt-important"><div class="receipt-important-text">⚠ BRING THIS RECEIPT TO COLLECT YOUR ITN(S)</div></div></div>'+
-        '<div class="receipt-footer"><div class="receipt-footer-dp">'+rec.distributionPoint+'</div><div class="receipt-footer-text">By: '+rec.registeredBy+'</div><div class="receipt-footer-date">'+ds+' '+ts+'</div></div>';
-    setTimeout(function(){rec.vouchers.forEach(function(v,i){
-        var ph=document.getElementById('qr_placeholder_'+i);
-        if(ph&&typeof qrcode!=='undefined'){var qr=qrcode(0,'M');qr.addData(v);qr.make();
-            ph.innerHTML='<div class="qr-wrap">'+qr.createSvgTag({cellSize:4,margin:2})+'<div class="qr-label">'+v+'</div></div>';}
-    });},50);
-}
-function downloadReceiptImage(){var el=document.getElementById('voucherReceipt');showNotification('Generating...','info');
-    html2canvas(el,{scale:2,backgroundColor:'#fff',useCORS:true,logging:false}).then(function(canvas){
-        var a=document.createElement('a');a.download='ITN_Voucher_'+(lastReceipt?lastReceipt.hhName.replace(/\s+/g,'_'):'receipt')+'.png';a.href=canvas.toDataURL('image/png');a.click();showNotification('Downloaded!','success');
-    }).catch(function(){showNotification('Failed — try PDF','error');});}
-function downloadReceiptPDF(){var el=document.getElementById('voucherReceipt');showNotification('Generating...','info');
-    html2canvas(el,{scale:2,backgroundColor:'#fff',useCORS:true,logging:false}).then(function(canvas){
-        var pdf=new jspdf.jsPDF('p','mm','a4'),pw=pdf.internal.pageSize.getWidth(),ph=pdf.internal.pageSize.getHeight();
-        var r=Math.min((pw-20)/canvas.width,(ph-20)/canvas.height);
-        pdf.addImage(canvas.toDataURL('image/png'),'PNG',(pw-canvas.width*r)/2,10,canvas.width*r,canvas.height*r);
-        pdf.save('ITN_Voucher_'+(lastReceipt?lastReceipt.hhName.replace(/\s+/g,'_'):'receipt')+'.pdf');showNotification('Downloaded!','success');
-    }).catch(function(){showNotification('Failed','error');});}
-function closeReceipt(){document.getElementById('receiptSection').style.display='none';lastReceipt=null;
+    sendToSheet('registration',rec);updateAllCounts();
+    // Reset form for next registration
     ['reg_hh_name','reg_hh_phone','reg_total_people','reg_males','reg_females','reg_under5','reg_pregnant'].forEach(function(id){document.getElementById(id).value='';});
     document.getElementById('voucherInputBlock').style.display='none';document.getElementById('voucherInputFields').innerHTML='';
     document.getElementById('genderCheck').style.display='none';
     document.querySelectorAll('.field-error').forEach(function(el){el.textContent='';el.classList.remove('show');});
-    generateHHId();captureRegGPS();window.scrollTo({top:0,behavior:'smooth'});}
+    generateHHId();captureRegGPS();window.scrollTo({top:0,behavior:'smooth'});
+}
 
 // DISTRIBUTION VERIFY
 function verifyVoucher(){var vc=document.getElementById('dist_voucher_scan').value.trim().toUpperCase(),rb=document.getElementById('verifyResultBlock'),rd=document.getElementById('verifyResult');
