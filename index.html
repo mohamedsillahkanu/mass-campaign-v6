@@ -44,12 +44,12 @@
                     <div class="section-header"><div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg></div><div><h2 class="section-title">USER LOGIN</h2><p class="section-description">Sign in — you'll be routed to your assigned level</p></div></div>
                     <div class="role-info-cards">
                         <div class="role-card role-dhmt"><div class="role-badge">DHMT</div><span>District → PHU distribution</span></div>
-                        <div class="role-card role-phu"><div class="role-badge">PHU</div><span>PHU → Community distribution</span></div>
+                        <div class="role-card role-phu"><div class="role-badge">PHU</div><span>PHU → DP distribution</span></div>
                         <div class="role-card role-field"><div class="role-badge">FIELD</div><span>Registration & HH distribution</span></div>
                     </div>
                     <div class="credentials-ref">
                         <div class="cred-toggle" onclick="toggleCredentials()"><svg class="cred-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>VIEW CREDENTIALS</span><svg class="cred-chevron" id="credChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-                        <div class="cred-table-wrap" id="credTableWrap" style="display:none;"><table class="cred-table"><thead><tr><th>USER ID</th><th>PASSWORD</th><th>NAME</th><th>ROLE</th><th>LOCATION</th></tr></thead><tbody id="credTableBody"></tbody></table></div>
+                        <div class="cred-table-wrap" id="credTableWrap" style="display:none;"><table class="cred-table"><thead><tr><th>USER ID</th><th>PASSWORD</th><th>NAME</th><th>ROLE</th><th>DISTRICT</th><th>CHIEFDOM</th><th>PHU</th><th>DIST. POINT</th></tr></thead><tbody id="credTableBody"></tbody></table></div>
                     </div>
                     <div class="csv-status" id="csvStatus"><div class="csv-loading"><div class="csv-spinner"></div><span>Loading distribution points...</span></div></div>
                     <div class="form-group"><label class="form-label">USER ID <span class="required">*</span></label><input type="text" class="form-input" id="loginUserId" placeholder="Enter User ID" autocomplete="off" oninput="onUserIdInput()"></div>
@@ -60,7 +60,7 @@
                             <div class="assign-field"><label class="form-label">ROLE</label><input type="text" class="form-input readonly-blue" id="assignRole" readonly></div>
                             <div class="assign-field"><label class="form-label">DIST. POINT</label><input type="text" class="form-input readonly-blue" id="assignDP" readonly></div>
                             <div class="assign-field"><label class="form-label">DISTRICT</label><input type="text" class="form-input readonly-blue" id="assignDistrict" readonly></div>
-                            <div class="assign-field"><label class="form-label">COMMUNITY</label><input type="text" class="form-input readonly-blue" id="assignCommunity" readonly></div>
+                            <div class="assign-field"><label class="form-label">PHU</label><input type="text" class="form-input readonly-blue" id="assignCommunity" readonly></div>
                         </div>
                     </div>
                     <div class="login-error-msg" id="loginError"></div>
@@ -85,7 +85,7 @@
                             <div class="form-group"><label class="form-label">BATCH NUMBER</label><input type="text" class="form-input" id="dhmt_batch" placeholder="BATCH-2025-001"></div>
                             <div class="form-group"><label class="form-label">ITN TYPE <span class="required">*</span></label><select class="form-select" id="dhmt_type" required><option value="">Select...</option><option value="PBO">PBO</option><option value="IG2">IG2</option><option value="Mixed">Mixed</option></select></div>
                             <div class="form-group"><label class="form-label">QUANTITY <span class="required">*</span></label><input type="number" class="form-input" id="dhmt_qty" min="1" placeholder="0" required></div>
-                            <div class="form-group"><label class="form-label">DISTRIBUTED TO (PHU) <span class="required">*</span></label><input type="text" class="form-input" id="dhmt_to_phu" placeholder="PHU name"></div>
+                            <div class="form-group"><label class="form-label">DISTRIBUTED TO (PHU) <span class="required">*</span></label><select class="form-select" id="dhmt_to_phu" required><option value="">Select PHU...</option></select></div>
                             <div class="form-group" style="grid-column:span 2;"><label class="form-label">NOTES</label><input type="text" class="form-input" id="dhmt_notes" placeholder="Remarks..."></div>
                         </div>
                     </div>
@@ -101,9 +101,9 @@
     <div class="main-content" id="phuScreen" style="display:none;">
         <div class="page-container">
             <div class="page-header compact"><div class="header-row"><div class="header-left"><img src="https://github.com/mohamedsillahkanu/gdp-dashboard-2/raw/6c7463b0d5c3be150aafae695a4bcbbd8aeb1499/ICF-SL.jpg" alt="ICF-SL" class="header-logo-small" onerror="this.style.display='none'"><div><h1 class="compact-title">PHU DISTRIBUTION</h1><p class="compact-subtitle">PHU → Distribution Point Stock</p></div></div><div class="header-right"><span class="user-tag" id="phuUserTag">PHU</span><button class="logout-btn" onclick="handleLogout()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg></button></div></div></div>
-            <div class="geo-info-bar"><div class="geo-chip highlight"><span class="geo-label">District:</span><span class="geo-value" id="phuDistrict">—</span></div><div class="geo-chip"><span class="geo-label">Chiefdom:</span><span class="geo-value" id="phuChiefdom">—</span></div><div class="geo-chip"><span class="geo-label">Level:</span><span class="geo-value">PHU</span></div></div>
+            <div class="geo-info-bar"><div class="geo-chip highlight"><span class="geo-label">District:</span><span class="geo-value" id="phuDistrict">—</span></div><div class="geo-chip"><span class="geo-label">Chiefdom:</span><span class="geo-value" id="phuChiefdom">—</span></div><div class="geo-chip"><span class="geo-label">PHU:</span><span class="geo-value" id="phuName">—</span></div></div>
             <div class="form-card"><div class="form-content">
-                <div class="section-header"><div class="section-icon" style="background:#e91e8c;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div><h2 class="section-title">DISTRIBUTE ITNs TO COMMUNITY</h2><p class="section-description">Record ITN stock sent from PHU to distribution points</p></div></div>
+                <div class="section-header"><div class="section-icon" style="background:#e91e8c;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div><h2 class="section-title">DISTRIBUTE ITNs TO DISTRIBUTION POINTS</h2><p class="section-description">Record ITN stock sent from PHU to distribution points</p></div></div>
                 <form onsubmit="return false;">
                     <div class="class-block"><div class="class-header" style="background:#e91e8c;">PHU → DISTRIBUTION POINT</div>
                         <div class="class-grid">
@@ -111,7 +111,7 @@
                             <div class="form-group"><label class="form-label">BATCH NUMBER</label><input type="text" class="form-input" id="phu_batch" placeholder="BATCH-2025-001"></div>
                             <div class="form-group"><label class="form-label">ITN TYPE <span class="required">*</span></label><select class="form-select" id="phu_type" required><option value="">Select...</option><option value="PBO">PBO</option><option value="IG2">IG2</option><option value="Mixed">Mixed</option></select></div>
                             <div class="form-group"><label class="form-label">QUANTITY <span class="required">*</span></label><input type="number" class="form-input" id="phu_qty" min="1" placeholder="0" required></div>
-                            <div class="form-group"><label class="form-label">DISTRIBUTED TO (DP / COMMUNITY) <span class="required">*</span></label><input type="text" class="form-input" id="phu_to_dp" placeholder="Distribution point name"></div>
+                            <div class="form-group"><label class="form-label">DISTRIBUTED TO (DP) <span class="required">*</span></label><select class="form-select" id="phu_to_dp" required><option value="">Select Distribution Point...</option></select></div>
                             <div class="form-group"><label class="form-label">RECEIVED FROM</label><input type="text" class="form-input readonly-blue" id="phu_from" readonly></div>
                             <div class="form-group" style="grid-column:span 2;"><label class="form-label">NOTES</label><input type="text" class="form-input" id="phu_notes" placeholder="Remarks..."></div>
                         </div>
@@ -131,7 +131,7 @@
             <div class="geo-info-bar">
                 <div class="geo-chip"><span class="geo-label">District:</span><span class="geo-value" id="geoDistrict">—</span></div>
                 <div class="geo-chip"><span class="geo-label">Chiefdom:</span><span class="geo-value" id="geoChiefdom">—</span></div>
-                <div class="geo-chip"><span class="geo-label">Community:</span><span class="geo-value" id="geoCommunity">—</span></div>
+                <div class="geo-chip"><span class="geo-label">PHU:</span><span class="geo-value" id="geoCommunity">—</span></div>
                 <div class="geo-chip highlight"><span class="geo-label">DP:</span><span class="geo-value" id="geoDP">—</span></div>
             </div>
             <div class="status-bar">
@@ -225,7 +225,13 @@
             <!-- DASHBOARD TAB -->
             <div class="tab-panel" id="tab-dashboard">
                 <div class="form-card"><div class="form-content">
-                    <div class="section-header"><div class="section-icon" style="background:#e91e8c;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><div><h2 class="section-title">CAMPAIGN DASHBOARD</h2><p class="section-description">Real-time performance at your distribution point</p></div></div>
+                    <div class="section-header"><div class="section-icon" style="background:#e91e8c;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><div><h2 class="section-title">CAMPAIGN DASHBOARD</h2><p class="section-description">Real-time performance — filter by location</p></div></div>
+                    <div class="dash-filter-row">
+                        <div class="dash-filter-group"><label class="form-label">DISTRICT</label><select class="form-select" id="dashFilterDistrict" onchange="onDashDistrictChange()"><option value="">All Districts</option></select></div>
+                        <div class="dash-filter-group"><label class="form-label">CHIEFDOM</label><select class="form-select" id="dashFilterChiefdom" onchange="onDashChiefdomChange()"><option value="">All Chiefdoms</option></select></div>
+                        <div class="dash-filter-group"><label class="form-label">PHU</label><select class="form-select" id="dashFilterPhu" onchange="onDashPhuChange()"><option value="">All PHUs</option></select></div>
+                        <div class="dash-filter-group"><label class="form-label">DIST. POINT</label><select class="form-select" id="dashFilterDP" onchange="refreshDashboard()"><option value="">All DPs</option></select></div>
+                    </div>
                     <div class="dash-summary-row">
                         <div class="dash-summary-card bg-blue"><div class="dash-s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="dash-s-value" id="dshRegCount">0</div><div class="dash-s-label">Households</div></div>
                         <div class="dash-summary-card bg-green"><div class="dash-s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="dash-s-value" id="dshDistCount">0</div><div class="dash-s-label">Distributed</div></div>
