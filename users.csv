@@ -1,0 +1,17 @@
+user_id,password,name,role,district,chiefdom,phu_name,distribution_point,dp_id
+dhmt001,dhmt001,DHMT Officer Bo,dhmt,Bo,Kakua,Bo Town CHC,Bo Town Community Center,dp001
+dhmt002,dhmt002,DHMT Officer Kenema,dhmt,Kenema,Nongowa,Kenema Government Hospital,Kenema City Hall,dp005
+phu001,phu001,PHU Officer Kakua,phu,Bo,Kakua,Bo Town CHC,Bo Town Community Center,dp001
+phu002,phu002,PHU Officer Nongowa,phu,Kenema,Nongowa,Kenema Government Hospital,Kenema City Hall,dp005
+user001,pass001,Mohamed Kanu,field_agent,Bo,Kakua,Bo Town CHC,Bo Town Community Center,dp001
+user002,pass002,Fatmata Sesay,field_agent,Bo,Kakua,Kindia MCHP,Kindia Primary School Ground,dp002
+user003,pass003,Ibrahim Kamara,field_agent,Kenema,Nongowa,Kenema Government Hospital,Kenema City Hall,dp005
+user004,pass004,Aminata Conteh,field_agent,Kenema,Nongowa,Blama Road CHP,Blama Road Community Center,dp006
+user005,pass005,Abu Bangura,field_agent,Bombali,Bombali Shebora,Makeni Government Hospital,Makeni Central Mosque Area,dp008
+user006,pass006,Mariama Jalloh,field_agent,Port Loko,Maforki,Port Loko Government Hospital,Port Loko Town Hall,dp011
+user007,pass007,Samuel Koroma,field_agent,Kailahun,Luawa,Kailahun Government Hospital,Kailahun Town Center,dp013
+user008,pass008,Hawa Turay,field_agent,Kambia,Magbema,Kambia Government Hospital,Kambia Government Hospital DP,dp015
+user009,pass009,Alhaji Sesay,field_agent,Moyamba,Kaiyamba,Moyamba Government Hospital,Moyamba Junction Field,dp016
+user010,pass010,Isata Mansaray,field_agent,Western Area Urban,West I,Freetown West CHP,Freetown West Community Center,dp019
+sup001,sup001,John Supervisor,supervisor,Bo,Kakua,Bo Town CHC,Bo Town Community Center,dp001
+admin,admin123,Admin User,admin,Bo,Kakua,Bo Town CHC,Bo Town Community Center,dp001
