@@ -176,7 +176,7 @@ function formatTypeQtySummary(items){return items.map(function(i){return i.quant
 function showDHMTScreen(){
     document.getElementById('dhmtScreen').style.display='block';
     var ut=document.getElementById('dhmtUserTag');if(ut)ut.textContent=state.currentUser.name.split(' ')[0].toUpperCase();
-    var on=document.getElementById('dhmtOfficerName');if(on)on.textContent=state.currentUser.name||'—';
+    var on=document.getElementById('dhmtDistrict');if(on)on.textContent=state.geoInfo.district||'—';
     var df=document.getElementById('dhmt_date');if(df&&!df.value)df.value=new Date().toISOString().split('T')[0];
     populateDhmtPhuDropdown();
     renderDHMTHistory();
@@ -184,8 +184,9 @@ function showDHMTScreen(){
 function populateDhmtPhuDropdown(){
     var sel=document.getElementById('dhmt_to_phu');if(!sel||!cascadingData.length)return;
     sel.innerHTML='<option value="">Select PHU...</option>';
+    var district=(state.geoInfo.district||'').trim();if(!district)return;
     var phus=[];cascadingData.forEach(function(r){
-        if(r.phu&&phus.indexOf(r.phu)===-1)phus.push(r.phu);
+        if((r.district||'').trim()===district&&r.phu&&phus.indexOf(r.phu)===-1)phus.push(r.phu);
     });
     phus.sort();phus.forEach(function(p){var o=document.createElement('option');o.value=p;o.textContent=p;sel.appendChild(o);});
 }
@@ -204,11 +205,9 @@ function submitDHMT(){
     var notes=document.getElementById('dhmt_notes').value.trim();
     if(!date||typeQtys.length===0||!to){showNotification('Fill date, select type(s) with qty, and PHU','error');return;}
     var totalQty=0;typeQtys.forEach(function(tq){totalQty+=tq.quantity;});
-    var phuRow=cascadingData.find(function(r){return r.phu===to;});
-    var district=phuRow?phuRow.district:'';
     var rec={id:'DHMT-'+Date.now().toString(36).toUpperCase(),timestamp:new Date().toISOString(),date:date,batch:batch,
         types:typeQtys,totalQuantity:totalQty,typeSummary:formatTypeQtySummary(typeQtys),
-        toPhu:to,notes:notes,district:district,recordedBy:state.currentUser.name,userId:state.currentUser.id,synced:false};
+        toPhu:to,notes:notes,district:state.geoInfo.district,recordedBy:state.currentUser.name,userId:state.currentUser.id,synced:false};
     state.dhmtRecords.push(rec);saveToStorage();showNotification(totalQty+' ITNs → '+to,'success');
     sendToSheet('dhmt_distribution',rec);renderDHMTHistory();
     document.getElementById('dhmt_batch').value='';document.getElementById('dhmt_notes').value='';
